@@ -18,20 +18,20 @@ export interface AboutMe {
 }
 
 export const aboutMe: AboutMe = {
-  name: "Jane R. Smith",
-  title: "Ph.D. Candidate",
-  institution: "Stanford University",
+  name: "Romnick S. Sevilla",
+  title: "Full Stack Web Developer",
+  institution: "",
   // Note that links work in the description
   description:
-    "I'm a final-year <a href='https://www.stanford.edu'>PhD candidate</a> working at the intersection of causal inference and machine learning. My research focuses on developing robust, interpretable systems that can reason about cause and effect in complex environments.",
-  email: "______@stanford.edu",
+    "I am a highly skilled developer with a passion for creating innovative and user-friendly web applications. With a strong background in frontend and backend development.",
+  email: "nick022190@gmail.com",
   imageUrl:
     "https://images.unsplash.com/photo-1581481615985-ba4775734a9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  googleScholarUrl: "https://scholar.google.com/citations?user=bWtMl_MAAAAJ",
-  githubUsername: "janesmith",
-  linkedinUsername: "janesmith",
-  twitterUsername: "janesmith",
-  blogUrl: "https://",
+  // googleScholarUrl: "https://",
+  githubUsername: "nick0221",
+  linkedinUsername: "nickzworld",
+  twitterUsername: "",
+  // blogUrl: "https://",
   cvUrl: "https://",
   institutionUrl: "https://www.stanford.edu",
   // altName: "",
