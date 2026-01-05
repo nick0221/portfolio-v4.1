@@ -17,6 +17,8 @@ export const technicalSkillsData: TechnicalSkill[] = [
       "Tailwind CSS",
       "JavaScript",
       "TypeScript",
+      "JQuery",
+      "Vue.js",
     ],
   },
   {
@@ -45,3 +47,5 @@ export const technicalSkillsData: TechnicalSkill[] = [
     ],
   },
 ];
+
+export default technicalSkillsData;

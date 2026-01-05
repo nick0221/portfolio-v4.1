@@ -11,6 +11,8 @@ import { experienceData } from "@/data/experience";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
+import { TechnicalEntry } from "@/components/technical-entry";
+import technicalData from "@/data/technical-skills";
 
 export default function Home() {
   return (
@@ -113,6 +115,25 @@ export default function Home() {
                       </section>
                     )
                   );
+                case Section.technical:
+                  return (
+                    <section key={sectionName}>
+                      <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
+                        Tech Stacks
+                      </h2>
+                      <div className="space-y-12">
+                        {technicalData.map((technical, index) => (
+                          <div key={index}>
+                            <TechnicalEntry technical={technical} />
+                            {index < technicalData.length - 1 && (
+                              <div className="h-px bg-zinc-200 my-8" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  );
+
                 case Section.Portfolio:
                   return (
                     portfolioData.length > 0 && (
