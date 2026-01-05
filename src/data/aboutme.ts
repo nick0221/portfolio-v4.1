@@ -34,6 +34,6 @@ export const aboutMe: AboutMe = {
   // blogUrl: "https://",
   cvUrl: "https://",
   institutionUrl: "https://www.stanford.edu",
-  // altName: "",
+  // altName: "Nick",
   // secretDescription: "I like dogs.",
 };

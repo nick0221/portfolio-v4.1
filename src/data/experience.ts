@@ -15,7 +15,7 @@ export const experienceData: Experience[] = [
       "Successfully completed 4 freelance web development projects for clients across various industries.",
       "Built full-stack web applications using Laravel, Livewire, AlpineJs and Tailwind CSS, focusing on performance, usability, and responsive design. ",
       "Collaborated closely with clients to translate business requirements into scalable, modern web solutions.  ",
-      " Projects showcase a mix of custom dashboards, portfolio sites, and business management systems — full details and screenshot preview available on portfolio: nickdevs.vercel.app. ",
+      " Projects showcase a mix of custom dashboards, portfolio sites, and business management systems — full details and screenshot preview available on portfolio: nickdevs.vercel.app",
     ],
 
     companyUrl: "",
