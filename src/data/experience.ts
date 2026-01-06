@@ -8,7 +8,7 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
-    date: " 2023 – Present",
+    date: "Sept 2023 – Present",
     title: "Full Stack Web Developer",
     company: "Freelance",
     description: [
