@@ -11,7 +11,7 @@ export const technicalSkillsData: TechnicalSkill[] = [
   {
     category: "Frontend Development",
     skills: [
-      "React",
+      "React JS",
       "HTML5",
       "CSS3",
       "Tailwind CSS",
@@ -19,19 +19,27 @@ export const technicalSkillsData: TechnicalSkill[] = [
       "TypeScript",
       "JQuery",
       "Vue.js",
+      "Bootstrap",
     ],
   },
   {
-    category: "Database Management",
-    skills: ["MySQL", "SQLite", "MongoDB"],
+    category: "Database",
+    skills: ["MySQL", "SQLite", "MongoDB", "MariaDB", "MS SQL Server"],
   },
   {
     category: "Version Control",
     skills: ["Git", "GitHub"],
   },
   {
-    category: "Cloud Services",
-    skills: ["AWS", "Firebase", "Google Cloud Platform"],
+    category: "Cloud Services and Hosting",
+    skills: [
+      "AWS",
+      "Firebase",
+      "Google Cloud Platform",
+      "Hostinger",
+      "Vercel",
+      "Render Cloud",
+    ],
   },
   {
     category: "Other tools and Technologies",

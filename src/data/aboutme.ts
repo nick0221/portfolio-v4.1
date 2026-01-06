@@ -25,8 +25,7 @@ export const aboutMe: AboutMe = {
   description:
     "I am a highly skilled developer with a passion for creating innovative and user-friendly web applications. With a strong background in frontend and backend development.",
   email: "nick022190@gmail.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1581481615985-ba4775734a9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  imageUrl: "https://avatars.githubusercontent.com/u/41096468?v=4",
   // googleScholarUrl: "https://",
   githubUsername: "nick0221",
   linkedinUsername: "nickzworld",

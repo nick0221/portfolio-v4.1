@@ -8,11 +8,11 @@ import { NewsEntry } from "@/components/news-entry";
 import { newsData } from "@/data/news";
 import { ExperienceEntry } from "@/components/experience-entry";
 import { experienceData } from "@/data/experience";
+import { TechnicalEntry } from "@/components/technical-entry";
+import technicalData from "@/data/technical-skills";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
-import { TechnicalEntry } from "@/components/technical-entry";
-import technicalData from "@/data/technical-skills";
 
 export default function Home() {
   return (
@@ -119,9 +119,9 @@ export default function Home() {
                   return (
                     <section key={sectionName}>
                       <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                        Tech Stacks
+                        Tech Stacks & Tools
                       </h2>
-                      <div className="space-y-12">
+                      <div className="space-y-4">
                         {technicalData.map((technical, index) => (
                           <div key={index}>
                             <TechnicalEntry technical={technical} />
