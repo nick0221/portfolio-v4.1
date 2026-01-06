@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, LinkIcon } from "lucide-react";
 import { Portfolio } from "@/data/portfolio";
 
 export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
@@ -20,6 +20,8 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
         <h3 className="font-serif text-md mb-3">
           {portfolio.projectUrl ? (
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={portfolio.projectUrl}
               className="group inline-flex items-center gap-2 hover:text-zinc-600 transition-colors duration-300"
             >
@@ -50,14 +52,16 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
         <div className="flex gap-6">
           {portfolio.projectUrl && (
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={portfolio.projectUrl}
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
-              <ArrowUpRight
+              <LinkIcon
                 size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
-              <span className="tracking-wider uppercase">Project</span>
+              <span className="tracking-wider uppercase">Demo link</span>
             </a>
           )}
           {portfolio.codeUrl && (
