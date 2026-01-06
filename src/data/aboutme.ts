@@ -31,7 +31,7 @@ export const aboutMe: AboutMe = {
   linkedinUsername: "nickzworld",
   twitterUsername: "",
   // blogUrl: "https://",
-  cvUrl: "https://",
+  cvUrl: "/cv/RSevilla-CV.pdf",
   institutionUrl: "https://www.stanford.edu",
   // altName: "Nick",
   // secretDescription: "I like dogs.",
