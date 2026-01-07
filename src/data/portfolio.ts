@@ -42,4 +42,20 @@ export const portfolioData: Portfolio[] = [
     projectUrl: "https://nick0221.github.io/",
     imageUrl: "https://placehold.co/600x400/png",
   },
+
+  {
+    title: "Valley & Coast Hotel Reservation System",
+    description:
+      "The Valley & Coast Hotel Reservation System is a web-based application designed to streamline booking, guest management, and hotel operations for Valley & Coast Hotel.",
+    technologies: [
+      "Laravel",
+      "Tailwind CSS",
+      "Alpine.js",
+      "Livewire",
+      "MySQL",
+      "Bootstrap",
+    ],
+    projectUrl: "https://nick0221.github.io/",
+    imageUrl: "https://placehold.co/600x400/png",
+  },
 ];
