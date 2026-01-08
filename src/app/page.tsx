@@ -50,7 +50,11 @@ export default function Home() {
                 case Section.Education:
                   return (
                     educationData.length > 0 && (
-                      <section key={sectionName} id="education">
+                      <section
+                        key={sectionName}
+                        id="education"
+                        className="scroll-mt-32"
+                      >
                         <h2 className="font-serif text-zinc-700 mb-12 tracking-wide uppercase">
                           Education
                         </h2>
@@ -66,7 +70,11 @@ export default function Home() {
                 case Section.Experience:
                   return (
                     experienceData.length > 0 && (
-                      <section key={sectionName} id="experience">
+                      <section
+                        key={sectionName}
+                        id="experience"
+                        className="scroll-mt-32"
+                      >
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Experience
                         </h2>
@@ -83,7 +91,11 @@ export default function Home() {
                   );
                 case Section.technical:
                   return (
-                    <section key={sectionName} id="technical">
+                    <section
+                      key={sectionName}
+                      id="techStacks"
+                      className="scroll-mt-32"
+                    >
                       <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                         Tech Stacks & Tools
                       </h2>
@@ -103,7 +115,11 @@ export default function Home() {
                 case Section.Portfolio:
                   return (
                     portfolioData.length > 0 && (
-                      <section key={sectionName} id="portfolio">
+                      <section
+                        key={sectionName}
+                        id="portfolio"
+                        className="scroll-mt-32"
+                      >
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Portfolio <br />
                           <small className="text-sm capitalize font-normal   text-zinc-500">
@@ -122,7 +138,11 @@ export default function Home() {
                 case Section.Certification:
                   return (
                     certificationData.length > 0 && (
-                      <section key={sectionName} id="certification">
+                      <section
+                        key={sectionName}
+                        id="certifications"
+                        className="scroll-mt-32"
+                      >
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Certifications
                         </h2>

@@ -1,17 +1,17 @@
 export enum Section {
-  Education = "education",
-  Experience = "experience",
-  Portfolio = "portfolio",
-  Publication = "publication",
-  News = "news",
-  technical = "technical",
-  Certification = "certification",
+  Education = "Education",
+  Experience = "Experience",
+  Portfolio = "Portfolio",
+  // Publication = "publication",
+  // News = "news",
+  technical = "Techstacks",
+  Certification = "Certification",
 }
 
 export const sectionOrder = [
-  Section.News,
+  // Section.News,
   Section.Education,
-  Section.Publication,
+  // Section.Publication,
   Section.Experience,
   Section.technical,
   Section.Portfolio,
@@ -19,11 +19,11 @@ export const sectionOrder = [
 ];
 
 export const sectionIds: Record<Section, string> = {
-  [Section.News]: "news",
+  // [Section.News]: "news",
   [Section.Education]: "education",
-  [Section.Publication]: "publications",
+  // [Section.Publication]: "publications",
   [Section.Experience]: "experience",
-  [Section.technical]: "technical",
+  [Section.technical]: "techStacks",
   [Section.Portfolio]: "portfolio",
   [Section.Certification]: "certifications",
 };

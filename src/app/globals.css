@@ -25,3 +25,7 @@ body {
 .sans {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+section {
+  scroll-margin-top: 8rem;
+}
