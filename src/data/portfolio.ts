@@ -14,8 +14,16 @@ export const portfolioData: Portfolio[] = [
     description:
       "A personal portfolio website that showcases my skills, projects, and experience.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
-    projectUrl: "https://github.com/yourusername/portfolio-website",
-    imageUrl: "https://placehold.co/600x400/png",
+    projectUrl: "https://nickdevs.vercel.app",
+    imageUrl: "/project-images/portfolio-v4.png",
+  },
+  {
+    title: "Website Portfolio v3",
+    description:
+      "A personal portfolio website that showcases my skills, projects, and experience.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "HeroUI"],
+    projectUrl: "",
+    imageUrl: "/project-images/pv3/3.png",
   },
   {
     title: "URBANKiX - Ecommerce Website",
