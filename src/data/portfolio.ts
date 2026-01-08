@@ -9,7 +9,7 @@ export interface Portfolio {
 
 export const portfolioData: Portfolio[] = [
   {
-    title: "Portfolio v4",
+    title: "Website Portfolio v4",
     description:
       "A personal portfolio website that showcases my skills, projects, and experience.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
@@ -35,7 +35,7 @@ export const portfolioData: Portfolio[] = [
   },
 
   {
-    title: "Portfolio v2",
+    title: "Website Portfolio v2",
     description:
       "A clean, static portfolio website built with HTML, CSS, and JavaScript to  showcase my projects, skills, and experience as a full-stack web developer.",
     technologies: ["CSS", "JavaScript", "HTML"],
@@ -55,7 +55,48 @@ export const portfolioData: Portfolio[] = [
       "MySQL",
       "Bootstrap",
     ],
-    projectUrl: "https://nick0221.github.io/",
+    projectUrl: "",
+    imageUrl: "https://placehold.co/600x400/png",
+  },
+
+  {
+    title: "Allacapan Municipal Rural Health Unit Management System",
+    description:
+      "The Municipal Rural Health Unit Management System is a role-based, web-based platform developed exclusively for the Municipality of Allacapan, aimed at digitizing patient records, consultation tracking, scheduling, and reporting to improve local healthcare service delivery.",
+    technologies: [
+      "Laravel",
+      "Tailwind CSS",
+      "Alpine.js",
+      "Livewire",
+      "MySQL",
+      "Bootstrap",
+    ],
+    projectUrl: "",
+    imageUrl: "https://placehold.co/600x400/png",
+  },
+
+  {
+    title: "Online Pharmacy Management Information System",
+    description:
+      "The Online Pharmacy Management Information System is a secure, role-based web application designed to manage pharmacy operations, including inventory, prescriptions, sales, and reporting. It streamlines internal workflows and enhances service accuracy for both in-store and online customers.",
+    technologies: [
+      "Laravel",
+      "Tailwind CSS",
+      "Alpine.js",
+      "Livewire",
+      "MySQL",
+      "Bootstrap",
+    ],
+    projectUrl: "",
+    imageUrl: "https://placehold.co/600x400/png",
+  },
+
+  {
+    title: "Advanced Service Kiosk Management System",
+    description:
+      "Advanced Service Kiosk is a secure, web-based internal Management Information System (MIS) designed to streamline and manage service operations within an organization.",
+    technologies: ["Laravel", "jQuery", "MySQL", "Bootstrap", "Tailwind CSS"],
+    projectUrl: "",
     imageUrl: "https://placehold.co/600x400/png",
   },
 ];
