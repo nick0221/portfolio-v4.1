@@ -4,6 +4,7 @@ export interface Portfolio {
   technologies?: string[];
   imageUrl?: string;
   projectUrl?: string;
+  projectGallery?: { urlImage: string; label: string }[];
   codeUrl?: string;
 }
 
@@ -22,7 +23,7 @@ export const portfolioData: Portfolio[] = [
       "UrbanKix is a hobby sneaker web app that showcases curated streetwear-inspired kicks with smooth animations and modern UI design.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "HeroUI"],
     projectUrl: "https://urbankix.vercel.app",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/ecom/2.png",
   },
 
   {
@@ -31,7 +32,7 @@ export const portfolioData: Portfolio[] = [
       "A real estate lead capture system with an admin panel, enabling property owners to submit listings and allowing administrators to manage submissions and receive instant email notifications.",
     technologies: ["Tailwind CSS", "Laravel", "Livewire", "Alpine.js", "MySQL"],
     projectUrl: "https://www.quickselldetroit.co",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/quicksell/3.png",
   },
 
   {
@@ -40,7 +41,7 @@ export const portfolioData: Portfolio[] = [
       "A clean, static portfolio website built with HTML, CSS, and JavaScript to  showcase my projects, skills, and experience as a full-stack web developer.",
     technologies: ["CSS", "JavaScript", "HTML"],
     projectUrl: "https://nick0221.github.io/",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/pv2/2.png",
   },
 
   {
@@ -56,7 +57,7 @@ export const portfolioData: Portfolio[] = [
       "Bootstrap",
     ],
     projectUrl: "",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/valley/4.png",
   },
 
   {
@@ -72,7 +73,7 @@ export const portfolioData: Portfolio[] = [
       "Bootstrap",
     ],
     projectUrl: "",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/rhu/4.png",
   },
 
   {
@@ -88,7 +89,7 @@ export const portfolioData: Portfolio[] = [
       "Bootstrap",
     ],
     projectUrl: "",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/opms/1.png",
   },
 
   {
@@ -97,6 +98,15 @@ export const portfolioData: Portfolio[] = [
       "Advanced Service Kiosk is a secure, web-based internal Management Information System (MIS) designed to streamline and manage service operations within an organization.",
     technologies: ["Laravel", "jQuery", "MySQL", "Bootstrap", "Tailwind CSS"],
     projectUrl: "",
-    imageUrl: "https://placehold.co/600x400/png",
+    imageUrl: "/project-images/ask/2.png",
+  },
+
+  {
+    title: "Time Commitment Service System",
+    description:
+      "A web-based Time Commitment Service system rebuilt specially for queuing, performance, reliability, and accessibility.",
+    technologies: ["PHP", "jQuery", "MySQL", "Bootstrap", "CSS"],
+    projectUrl: "",
+    imageUrl: "/project-images/tcs/1.png",
   },
 ];

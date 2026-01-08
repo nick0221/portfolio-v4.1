@@ -47,6 +47,6 @@ export const experienceData: Experience[] = [
       "Generated and analyzed reports based on collected data to aid business decisions.",
     ],
 
-    companyUrl: "",
+    companyUrl: "https://www.facebook.com/iclickdigishop/",
   },
 ];
