@@ -6,12 +6,13 @@ export interface TechnicalSkill {
 export const technicalSkillsData: TechnicalSkill[] = [
   {
     category: "Backend Development",
-    skills: ["PHP", "REST APIs", "Laravel", "Express.js"],
+    skills: ["PHP", "REST APIs", "Laravel", "Express.js", "Node.js"],
   },
   {
     category: "Frontend Development",
     skills: [
       "React JS",
+      "Next.js",
       "HTML5",
       "CSS3",
       "Tailwind CSS",
