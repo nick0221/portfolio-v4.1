@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noto_Serif, PT_Serif } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
+import { LinkedinIcon, LucideGithub, LucideMail } from "lucide-react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -105,25 +106,43 @@ export default function RootLayout({
                 Let&apos;s Connect
               </h3>
               <div className="flex gap-4">
-                {aboutMe.twitterUsername && (
+                {aboutMe.githubUsername && (
                   <a
-                    href={`https://twitter.com/${aboutMe.twitterUsername}`}
+                    href={`https://github.com/${aboutMe.githubUsername}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
-                    aria-label="Twitter"
+                    aria-label="GitHub"
+                    title="GitHub"
                   >
                     {/* Optional: Replace with Lucide Icon */}
-                    <svg
-                      className="h-5 w-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.38 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.3 3.9A12.13 12.13 0 0 1 3 4.9a4.28 4.28 0 0 0 1.32 5.7 4.27 4.27 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2 4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.97 8.58 8.58 0 0 1-5.3 1.82A8.73 8.73 0 0 1 2 19.54a12.1 12.1 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.55A8.72 8.72 0 0 0 24 5.5a8.6 8.6 0 0 1-2.54.7z" />
-                    </svg>
+                    <LucideGithub size={20} />
                   </a>
                 )}
-                {/* Add more social links like GitHub, LinkedIn, etc. */}
+                {aboutMe.linkedinUsername && (
+                  <a
+                    href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    {/* Optional: Replace with Lucide Icon */}
+                    <LinkedinIcon size={20} />
+                  </a>
+                )}
+                {aboutMe.email && (
+                  <a
+                    href={`mailto:${aboutMe.email}`}
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
+                    aria-label="Email"
+                    title="Email"
+                  >
+                    {/* Optional: Replace with Lucide Icon */}
+                    <LucideMail size={20} />
+                  </a>
+                )}
               </div>
             </div>
 
