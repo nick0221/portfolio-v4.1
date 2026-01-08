@@ -1,11 +1,9 @@
 import { EducationEntry } from "@/components/education-entry";
 import { educationData } from "@/data/education";
-import { PublicationEntry } from "@/components/publication-entry";
-import { publicationData } from "@/data/publication";
+
 import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
-import { NewsEntry } from "@/components/news-entry";
-import { newsData } from "@/data/news";
+
 import { ExperienceEntry } from "@/components/experience-entry";
 import { experienceData } from "@/data/experience";
 import { TechnicalEntry } from "@/components/technical-entry";
@@ -13,10 +11,14 @@ import technicalData from "@/data/technical-skills";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
+import CertificationEntry from "@/components/certification-entry";
+import { certificationData } from "@/data/certification";
+import { FloatingMenu } from "@/components/FloatingMenu";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#FFFCF8]">
+      <FloatingMenu />
       {/* Don't have a great call on whether max-w-screen-xl is better */}
       <div className="max-w-screen-lg mx-auto px-8 py-24">
         {/* Grid Layout */}
@@ -45,27 +47,10 @@ export default function Home() {
             {sectionOrder.map((sectionName) => {
               // Most of this is redundant... but in case it needs to be unique.
               switch (sectionName) {
-                case Section.News:
-                  return (
-                    newsData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          News
-                        </h2>
-                        <div className="space-y-12">
-                          {newsData.map((news, index) => (
-                            <div key={index}>
-                              <NewsEntry news={news} />
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
                 case Section.Education:
                   return (
                     educationData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} id="education">
                         <h2 className="font-serif text-zinc-700 mb-12 tracking-wide uppercase">
                           Education
                         </h2>
@@ -77,30 +62,11 @@ export default function Home() {
                       </section>
                     )
                   );
-                case Section.Publication:
-                  return (
-                    publicationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          Publications
-                        </h2>
-                        <div className="space-y-12">
-                          {publicationData.map((publication, index) => (
-                            <div key={index}>
-                              <PublicationEntry publication={publication} />
-                              {index < publicationData.length - 1 && (
-                                <div className="h-px bg-zinc-200 my-8" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
+
                 case Section.Experience:
                   return (
                     experienceData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} id="experience">
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Experience
                         </h2>
@@ -117,7 +83,7 @@ export default function Home() {
                   );
                 case Section.technical:
                   return (
-                    <section key={sectionName}>
+                    <section key={sectionName} id="technical">
                       <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                         Tech Stacks & Tools
                       </h2>
@@ -137,7 +103,7 @@ export default function Home() {
                 case Section.Portfolio:
                   return (
                     portfolioData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} id="portfolio">
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Portfolio <br />
                           <small className="text-sm capitalize font-normal   text-zinc-500">
@@ -147,6 +113,25 @@ export default function Home() {
                         <div className="space-y-12">
                           {portfolioData.map((portfolio, index) => (
                             <PortfolioEntry key={index} portfolio={portfolio} />
+                          ))}
+                        </div>
+                      </section>
+                    )
+                  );
+
+                case Section.Certification:
+                  return (
+                    certificationData.length > 0 && (
+                      <section key={sectionName} id="certification">
+                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
+                          Certifications
+                        </h2>
+                        <div className="space-y-12">
+                          {certificationData.map((certification, index) => (
+                            <CertificationEntry
+                              key={index}
+                              certification={certification}
+                            />
                           ))}
                         </div>
                       </section>

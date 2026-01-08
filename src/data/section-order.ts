@@ -5,6 +5,7 @@ export enum Section {
   Publication = "publication",
   News = "news",
   technical = "technical",
+  Certification = "certification",
 }
 
 export const sectionOrder = [
@@ -14,4 +15,15 @@ export const sectionOrder = [
   Section.Experience,
   Section.technical,
   Section.Portfolio,
+  Section.Certification,
 ];
+
+export const sectionIds: Record<Section, string> = {
+  [Section.News]: "news",
+  [Section.Education]: "education",
+  [Section.Publication]: "publications",
+  [Section.Experience]: "experience",
+  [Section.technical]: "technical",
+  [Section.Portfolio]: "portfolio",
+  [Section.Certification]: "certifications",
+};
