@@ -143,8 +143,8 @@ export default function Home() {
                         id="portfolio"
                         className="scroll-mt-32"
                       >
-                        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between mb-12">
-                          <h2 className="font-serif text-md tracking-wide uppercase">
+                        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between mb-12">
+                          <h2 className="font-serif text-md tracking-wide uppercase ">
                             Portfolio <br />
                             <small className="text-sm capitalize font-normal text-zinc-500">
                               ({filteredPortfolio.length} Projects)
