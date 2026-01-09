@@ -19,6 +19,8 @@ import { FloatingMenu } from "@/components/FloatingMenu";
 
 import { useMemo, useState } from "react";
 
+import { FadeIn } from "@/components/motion/FadeIn";
+
 export default function Home() {
   const [techFilter, setTechFilter] = useState<string>("All");
 
@@ -49,9 +51,11 @@ export default function Home() {
           {/* Left Column - Fixed Info */}
           <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
             {/* Profile */}
-            <div className="md:sticky top-12 space-y-8">
-              <ProfileSection aboutMe={aboutMe} />
-            </div>
+            <FadeIn>
+              <div className="md:sticky top-12 space-y-8">
+                <ProfileSection aboutMe={aboutMe} />
+              </div>
+            </FadeIn>
           </div>
 
           {/* Right Column - Scrolling Content */}
