@@ -71,6 +71,14 @@ export const portfolioData: Portfolio[] = [
     technologies: ["Tailwind CSS", "Laravel", "Livewire", "Alpine.js", "MySQL"],
     projectUrl: "https://www.quickselldetroit.co",
     imageUrl: "/project-images/quicksell/3.png",
+    projectGallery: [
+      {
+        urlImage: "/project-images/quicksell/1.png",
+        label: "Home Page",
+      },
+      { urlImage: "/project-images/quicksell/2.png", label: "Admin Panel" },
+      { urlImage: "/project-images/quicksell/3.png", label: "Form Page" },
+    ],
   },
 
   {
@@ -80,6 +88,9 @@ export const portfolioData: Portfolio[] = [
     technologies: ["CSS", "JavaScript", "HTML"],
     projectUrl: "https://nick0221.github.io/",
     imageUrl: "/project-images/pv2/2.png",
+    projectGallery: [
+      { urlImage: "/project-images/pv2/1.png", label: "Fullpage Home" },
+    ],
   },
 
   {
@@ -96,6 +107,13 @@ export const portfolioData: Portfolio[] = [
     ],
     projectUrl: "",
     imageUrl: "/project-images/valley/4.png",
+    projectGallery: [
+      { urlImage: "/project-images/valley/1.png", label: "Booking Page" },
+      { urlImage: "/project-images/valley/2.png", label: "Website Frontpage" },
+      { urlImage: "/project-images/valley/3.png", label: "Website Frontpage" },
+      { urlImage: "/project-images/valley/4.png", label: "Login Page" },
+      { urlImage: "/project-images/valley/5.png", label: "Admin Dashboard" },
+    ],
   },
 
   {
@@ -105,6 +123,15 @@ export const portfolioData: Portfolio[] = [
     technologies: ["Laravel", "Tailwind CSS", "Alpine.js", "Livewire", "MySQL"],
     projectUrl: "",
     imageUrl: "/project-images/rhu/4.png",
+    projectGallery: [
+      {
+        urlImage: "/project-images/rhu/1.png",
+        label: "Treatment Records Page",
+      },
+      { urlImage: "/project-images/rhu/2.png", label: "Client Profile Page" },
+      { urlImage: "/project-images/rhu/3.png", label: "Users Dashboard" },
+      { urlImage: "/project-images/rhu/4.png", label: "Login Page" },
+    ],
   },
 
   {
@@ -121,6 +148,12 @@ export const portfolioData: Portfolio[] = [
     ],
     projectUrl: "",
     imageUrl: "/project-images/opms/1.png",
+    projectGallery: [
+      { urlImage: "/project-images/opms/1.png", label: "Login Page" },
+      { urlImage: "/project-images/opms/2.png", label: "Users Dashboard" },
+      { urlImage: "/project-images/opms/3.png", label: "Point of Sale" },
+      { urlImage: "/project-images/opms/4.png", label: "Product Inventory" },
+    ],
   },
 
   {
@@ -130,6 +163,12 @@ export const portfolioData: Portfolio[] = [
     technologies: ["Laravel", "jQuery", "MySQL", "Bootstrap", "Tailwind CSS"],
     projectUrl: "",
     imageUrl: "/project-images/ask/2.png",
+    projectGallery: [
+      { urlImage: "/project-images/ask/2.png", label: "Login Page" },
+      { urlImage: "/project-images/ask/1.png", label: "Users dashboard" },
+      { urlImage: "/project-images/ask/3.png", label: "Users dashboard" },
+      { urlImage: "/project-images/ask/4.png", label: "Clients masterlists" },
+    ],
   },
 
   {
@@ -139,5 +178,14 @@ export const portfolioData: Portfolio[] = [
     technologies: ["PHP", "jQuery", "MySQL", "Bootstrap", "CSS"],
     projectUrl: "",
     imageUrl: "/project-images/tcs/1.png",
+    projectGallery: [
+      { urlImage: "/project-images/tcs/1.png", label: "Login Page" },
+      { urlImage: "/project-images/tcs/2.png", label: "Users dashboard" },
+      {
+        urlImage: "/project-images/tcs/3.png",
+        label: "Yealy/Monthly generated reports",
+      },
+      { urlImage: "/project-images/tcs/4.png", label: "Generated Reports" },
+    ],
   },
 ];
