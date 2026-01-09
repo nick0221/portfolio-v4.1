@@ -111,7 +111,7 @@ export default function RootLayout({
                     href={`https://github.com/${aboutMe.githubUsername}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500  transition-transform hover:scale-110"
                     aria-label="GitHub"
                     title="GitHub"
                   >
@@ -124,7 +124,7 @@ export default function RootLayout({
                     href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
                     aria-label="LinkedIn"
                     title="LinkedIn"
                   >
@@ -135,7 +135,7 @@ export default function RootLayout({
                 {aboutMe.email && (
                   <a
                     href={`mailto:${aboutMe.email}`}
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors"
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
                     aria-label="Email"
                     title="Email"
                   >
