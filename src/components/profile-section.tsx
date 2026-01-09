@@ -53,6 +53,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           <br />
           {aboutMe.institutionUrl ? (
             <a
+              aria-label="institutionUrl"
               href={aboutMe.institutionUrl}
               className="hover:text-zinc-900 transition-colors duration-300"
               target="_blank"
@@ -68,6 +69,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
         <div className="flex  mb-2">
           {aboutMe.blogUrl && (
             <a
+              aria-label="blogUrl"
               href={aboutMe.blogUrl}
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
               target="_blank"
@@ -85,6 +87,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           {aboutMe.cvUrl && (
             <SlideToRight delay={0.3}>
               <a
+                aria-label="Download CV"
                 href={aboutMe.cvUrl}
                 className="group inline-flex items-center gap-2 text-xs text-zinc-600 hover:text-zinc-900 transition-colors duration-300"
                 target="_blank"
@@ -107,6 +110,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           {/* email */}
           <SlideToRight delay={0.4}>
             <a
+              aria-label="email"
               href={`mailto:${aboutMe.email}`}
               className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
               target="_blank"
@@ -121,6 +125,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           <SlideToRight delay={0.6}>
             {aboutMe.githubUsername && (
               <a
+                aria-label="githubUsername"
                 href={`https://github.com/${aboutMe.githubUsername}`}
                 className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"
@@ -135,6 +140,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           <SlideToRight delay={0.8}>
             {aboutMe.linkedinUsername && (
               <a
+                aria-label="linkedinUsername"
                 href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
                 className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"

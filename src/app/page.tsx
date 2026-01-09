@@ -176,10 +176,15 @@ export default function Home() {
 
                             {/* Tech Stack Filter */}
                             <div className="flex items-center gap-2 text-xs text-zinc-500">
-                              <span className="uppercase tracking-wide">
+                              <span
+                                className="uppercase tracking-wide"
+                                id="filter-tech"
+                              >
                                 Filter
                               </span>
                               <select
+                                araia-label="Filter projects by technology"
+                                aria-labelledby="filter-tech"
                                 value={techFilter}
                                 onChange={(e) => setTechFilter(e.target.value)}
                                 className="
