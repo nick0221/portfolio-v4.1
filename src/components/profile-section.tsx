@@ -37,15 +37,19 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
       )}
       <div className="w-2/3 md:w-full">
         <h1 className="font-serif text-3xl font-light tracking-wide mb-3">
-          {aboutMe.name}
+          <SlideToRight delay={0.2}>{aboutMe.name}</SlideToRight>
         </h1>
         {aboutMe.altName && (
-          <p className="text-zinc-600 text-md leading-relaxed tracking-wide mb-6">
-            {aboutMe.altName}
-          </p>
+          <SlideToRight delay={0.2}>
+            <p className="text-zinc-600 text-md leading-relaxed tracking-wide mb-6">
+              {aboutMe.altName}
+            </p>
+          </SlideToRight>
         )}
-        <p className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase mb-6">
-          {aboutMe.title}
+
+        <div className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase  ">
+          <SlideToRight delay={0.2}>{aboutMe.title}</SlideToRight>
+
           <br />
           {aboutMe.institutionUrl ? (
             <a
@@ -59,8 +63,9 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           ) : (
             aboutMe.institution
           )}
-        </p>
-        <div className="flex gap-6 mb-6">
+        </div>
+
+        <div className="flex  mb-2">
           {aboutMe.blogUrl && (
             <a
               href={aboutMe.blogUrl}
@@ -78,7 +83,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
 
           {/* download cv */}
           {aboutMe.cvUrl && (
-            <SlideToRight delay={0.2}>
+            <SlideToRight delay={0.3}>
               <a
                 href={aboutMe.cvUrl}
                 className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"

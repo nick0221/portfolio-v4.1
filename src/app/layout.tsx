@@ -5,6 +5,7 @@ import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
 import { LinkedinIcon, LucideGithub, LucideMail } from "lucide-react";
 import { Analytics } from "@vercel/analytics/next";
+import { Reveal } from "@/components/motion";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,112 +49,114 @@ export default function RootLayout({
       >
         <main className="">{children}</main>
         <footer className="border-t border-neutral-200 dark:border-neutral-400 bg-[#FFFCF8]">
-          <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* 1️⃣ Brand / About */}
-            <div className="space-y-4">
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                © {new Date().getFullYear()} NickDevs Web Portfolio
-              </p>
-              {aboutMe.secretDescription && (
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  {aboutMe.secretDescription}
+          <Reveal delay={0.1} y={8}>
+            <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* 1️⃣ Brand / About */}
+              <div className="space-y-4">
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  © {new Date().getFullYear()} NickDevs Web Portfolio
                 </p>
-              )}
-            </div>
-
-            {/* 2️⃣ Quick Links / Section Navigation */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
-                Quick Links
-              </h3>
-              <ul className="space-y-1">
-                <li>
-                  <a
-                    href="#education"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
-                  >
-                    Education
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#experience"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
-                  >
-                    Experience
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#portfolio"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
-                  >
-                    Portfolio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#certification"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
-                  >
-                    Certifications
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* 3️⃣ Social Links */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
-                Let&apos;s Connect
-              </h3>
-              <div className="flex gap-4">
-                {aboutMe.githubUsername && (
-                  <a
-                    href={`https://github.com/${aboutMe.githubUsername}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500  transition-transform hover:scale-110"
-                    aria-label="GitHub"
-                    title="GitHub"
-                  >
-                    {/* Optional: Replace with Lucide Icon */}
-                    <LucideGithub size={20} />
-                  </a>
-                )}
-                {aboutMe.linkedinUsername && (
-                  <a
-                    href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                  >
-                    {/* Optional: Replace with Lucide Icon */}
-                    <LinkedinIcon size={20} />
-                  </a>
-                )}
-                {aboutMe.email && (
-                  <a
-                    href={`mailto:${aboutMe.email}`}
-                    className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
-                    aria-label="Email"
-                    title="Email"
-                  >
-                    {/* Optional: Replace with Lucide Icon */}
-                    <LucideMail size={20} />
-                  </a>
+                {aboutMe.secretDescription && (
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                    {aboutMe.secretDescription}
+                  </p>
                 )}
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <div className="text-xs  text-neutral-700 dark:text-neutral-400 uppercase ">
-                Built with ❤️ using Next.js, TailwindCSS & Lucide
+              {/* 2️⃣ Quick Links / Section Navigation */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
+                  Quick Links
+                </h3>
+                <ul className="space-y-1">
+                  <li>
+                    <a
+                      href="#education"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                    >
+                      Education
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#experience"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                    >
+                      Experience
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#portfolio"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                    >
+                      Portfolio
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#certification"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                    >
+                      Certifications
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 3️⃣ Social Links */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
+                  Let&apos;s Connect
+                </h3>
+                <div className="flex gap-4">
+                  {aboutMe.githubUsername && (
+                    <a
+                      href={`https://github.com/${aboutMe.githubUsername}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500  transition-transform hover:scale-110"
+                      aria-label="GitHub"
+                      title="GitHub"
+                    >
+                      {/* Optional: Replace with Lucide Icon */}
+                      <LucideGithub size={20} />
+                    </a>
+                  )}
+                  {aboutMe.linkedinUsername && (
+                    <a
+                      href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
+                    >
+                      {/* Optional: Replace with Lucide Icon */}
+                      <LinkedinIcon size={20} />
+                    </a>
+                  )}
+                  {aboutMe.email && (
+                    <a
+                      href={`mailto:${aboutMe.email}`}
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
+                      aria-label="Email"
+                      title="Email"
+                    >
+                      {/* Optional: Replace with Lucide Icon */}
+                      <LucideMail size={20} />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <div className="text-xs  text-neutral-700 dark:text-neutral-400 uppercase ">
+                  Built with ❤️ using Next.js, TailwindCSS & Lucide
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </footer>
         <Analytics />
       </body>
