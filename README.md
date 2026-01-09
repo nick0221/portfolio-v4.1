@@ -69,7 +69,7 @@ npm run dev
 yarn dev
 ```
 
-### Open http://localhost:3000 in your browser to view the website.
+###### Open http://localhost:3000 in your browser to view the website.
 
 ## Usage
 
