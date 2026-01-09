@@ -6,6 +6,7 @@ import { customMetadata } from "@/data/title-description";
 import { LinkedinIcon, LucideGithub, LucideMail } from "lucide-react";
 import { Analytics } from "@vercel/analytics/next";
 import { Reveal } from "@/components/motion";
+import { NickDevsLightLogo } from "@/components/logo/NickDevsLogo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,16 +52,25 @@ export default function RootLayout({
         <footer className="border-t border-neutral-200 dark:border-neutral-400 bg-[#FFFCF8]">
           <Reveal delay={0.1} y={8}>
             <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-              {/* 1️⃣ Brand / About */}
-              <div className="space-y-4">
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 tracking-wide uppercase">
-                  © {new Date().getFullYear()} NickDevs WEB PORTFOLIO
-                </p>
-                {aboutMe.secretDescription && (
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                    {aboutMe.secretDescription}
-                  </p>
-                )}
+              <div className="space-y-1 flex  flex-col ">
+                <div className="flex items-center transition-opacity opacity-80 hover:opacity-100">
+                  {/* <div className="hidden dark:block">
+                  <NickDevsDarkLogo width={160} height={44} />
+                </div> */}
+                  <div className=" ">
+                    <NickDevsLightLogo width={100} height={24} />
+                  </div>
+                </div>
+
+                {/* Copyright */}
+                <div className="text-xs text-neutral-600 dark:text-neutral-400">
+                  © {new Date().getFullYear()} NICKDEVS WEB PORTFOLIO
+                  {aboutMe.secretDescription && (
+                    <p className="mt-2 text-xs max-w-md">
+                      {aboutMe.secretDescription}
+                    </p>
+                  )}
+                </div>
               </div>
 
               {/* 2️⃣ Quick Links / Section Navigation */}
