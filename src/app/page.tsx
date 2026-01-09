@@ -152,21 +152,25 @@ export default function Home() {
                           </h2>
 
                           {/* Tech Stack Filter */}
-                          <select
-                            value={techFilter}
-                            onChange={(e) => setTechFilter(e.target.value)}
-                            className="
-                                border-b border-zinc-400 bg-transparent
-                                px-1 py-1 text-sm text-zinc-700
-                                focus:outline-none focus:border-blue-900
+                          <div className="flex items-center gap-2 text-xs text-zinc-500">
+                            <span className="uppercase tracking-wide">
+                              Filter
+                            </span>
+                            <select
+                              value={techFilter}
+                              onChange={(e) => setTechFilter(e.target.value)}
+                              className="
+                                text-zinc-700
+                                focus:outline-none focus:text-zinc-900
                               "
-                          >
-                            {techOptions.map((tech) => (
-                              <option key={tech} value={tech}>
-                                {tech}
-                              </option>
-                            ))}
-                          </select>
+                            >
+                              {techOptions.map((tech) => (
+                                <option key={tech} value={tech}>
+                                  {tech}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
                         </div>
 
                         <div className="space-y-12">
