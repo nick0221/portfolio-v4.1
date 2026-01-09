@@ -49,7 +49,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} antialiased`}
       >
         <main className="">{children}</main>
-        <footer className="border-t border-neutral-200 dark:border-neutral-400 bg-[#FFFCF8]">
+        <footer className="border-t bg-[#FFFCF8]">
           <Reveal delay={0.1} y={8}>
             <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="space-y-1 flex  flex-col ">
