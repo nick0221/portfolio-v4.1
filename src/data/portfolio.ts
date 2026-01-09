@@ -74,7 +74,7 @@ export const portfolioData: Portfolio[] = [
     projectGallery: [
       {
         urlImage: "/project-images/quicksell/1.png",
-        label: "Home Page",
+        label: "Admin Login Page",
       },
       { urlImage: "/project-images/quicksell/2.png", label: "Admin Panel" },
       { urlImage: "/project-images/quicksell/3.png", label: "Form Page" },
