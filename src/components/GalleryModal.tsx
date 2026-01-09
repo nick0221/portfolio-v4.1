@@ -83,13 +83,13 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
         {/* Slider */}
         <motion.div
           className="flex cursor-grab active:cursor-grabbing touch-pan-x"
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.5}
-          onDragEnd={(_, info) => {
-            if (info.offset.x < -80) paginate(1);
-            if (info.offset.x > 80) paginate(-1);
-          }}
+          // drag="x"
+          // dragConstraints={{ left: 0, right: 0 }}
+          // dragElastic={0.5}
+          // onDragEnd={(_, info) => {
+          //   if (info.offset.x < -80) paginate(1);
+          //   if (info.offset.x > 80) paginate(-1);
+          // }}
           animate={{ x: `-${index * 100}%` }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
