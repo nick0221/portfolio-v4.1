@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon/favicon.ico",
   },
+  metadataBase: new URL("https://nickdevs.vercel.app/"),
+  verification: {
+    google: "H-hU2TROsFDkDkK5qhrkbO4aF1t83MfNHIEtOXqEy_k",
+  },
 };
 
 export default function RootLayout({
