@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "NickDevs Web Portfolio",
     images: [
       {
-        url: "/og-image.png", // place this in /public
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "NickDevs Portfolio Preview",
