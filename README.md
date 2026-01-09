@@ -40,7 +40,7 @@ Showcases projects, technical skills, experience, and includes interactive featu
 - [Tailwind CSS 3](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/) for animations
 - [Lucide Icons](https://lucide.dev/)
-- TypeScript
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
