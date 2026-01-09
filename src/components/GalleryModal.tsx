@@ -28,7 +28,7 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [index]);
 
   return (
     <motion.div
@@ -81,10 +81,10 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
 
         {/* Slider */}
         <motion.div
-          className="flex cursor-grab active:cursor-grabbing"
+          className="flex cursor-grab active:cursor-grabbing touch-pan-x"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.15}
+          dragElastic={0.5}
           onDragEnd={(_, info) => {
             if (info.offset.x < -80) paginate(1);
             if (info.offset.x > 80) paginate(-1);
@@ -93,19 +93,20 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           {images.map((img, i) => (
-            <div
-              key={i}
-              className="min-w-full  max-h-[70vh] overflow-y-auto rounded-lg smooth-scroll"
-            >
-              <Image
-                src={img.urlImage}
-                alt={img.label}
-                width={900}
-                height={2000}
-                className="w-full h-auto rounded-lg select-none"
-                draggable={false}
-              />
-              <p className="text-xs text-zinc-500 mt-2">{img.label}</p>
+            <div key={i} className="min-w-full flex flex-col items-center px-6">
+              <div className="w-full max-h-[70vh] overflow-y-auto rounded-lg">
+                <Image
+                  src={img.urlImage}
+                  alt={img.label}
+                  width={900}
+                  height={2000}
+                  className="w-full h-auto rounded-lg select-none"
+                  draggable={false}
+                />
+              </div>
+              <p className="text-xs text-zinc-500 mt-2 text-center">
+                {img.label}
+              </p>
             </div>
           ))}
         </motion.div>

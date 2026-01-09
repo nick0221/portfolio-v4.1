@@ -25,7 +25,10 @@ export const portfolioData: Portfolio[] = [
     projectUrl: "",
     imageUrl: "/project-images/pv3/3.png",
     projectGallery: [
-      { urlImage: "/project-images/pv3/1.png", label: "Dark mode Page" },
+      {
+        urlImage: "/project-images/pv3/2.png",
+        label: "Fullpage Dark mode",
+      },
       { urlImage: "/project-images/pv3/3.png", label: "Light mode Page" },
     ],
   },
@@ -37,8 +40,27 @@ export const portfolioData: Portfolio[] = [
     projectUrl: "https://urbankix.vercel.app",
     imageUrl: "/project-images/ecom/2.png",
     projectGallery: [
-      { urlImage: "/project-images/ecom/1.png", label: "Home Page" },
-      { urlImage: "/project-images/ecom/2.png", label: "Product Page" },
+      {
+        urlImage: "/project-images/ecom/1.png",
+        label: "Full Screen Home Page",
+      },
+      { urlImage: "/project-images/ecom/4.png", label: "Shopping Page" },
+      { urlImage: "/project-images/ecom/5.png", label: "My Account Page" },
+      { urlImage: "/project-images/ecom/6.png", label: "Order List Page" },
+      { urlImage: "/project-images/ecom/7.png", label: "Wish List Page" },
+      {
+        urlImage: "/project-images/ecom/8.png",
+        label: "Billing address Settings",
+      },
+      { urlImage: "/project-images/ecom/9.png", label: "Payments Page" },
+      { urlImage: "/project-images/ecom/10.png", label: "Edit Profile Page" },
+      { urlImage: "/project-images/ecom/11.png", label: "Shoping Cart Page" },
+      { urlImage: "/project-images/ecom/12.png", label: "Checkout Page" },
+      { urlImage: "/project-images/ecom/13.png", label: "Login Page" },
+      {
+        urlImage: "/project-images/ecom/14.png",
+        label: "Full Screen Darkmode Home Page",
+      },
     ],
   },
 
