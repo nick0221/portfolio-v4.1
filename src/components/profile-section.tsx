@@ -19,12 +19,12 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
   }
 
   return (
-    <div className="md:sticky top-12 flex flex-row-reverse md:flex-col gap-4 md:space-y-8">
+    <div className="md:sticky top-12 flex flex-row-reverse md:flex-col gap-2 md:space-y-8">
       {aboutMe.imageUrl && (
         <div className="w-1/3 md:w-full flex-shrink-0">
           <div className="relative max-h-[45vh] md:w-[65%] aspect-[3/4] ">
             {/* Adaptive overlay */}
-            <div className="absolute inset-0 bg-black/10 mix-blend-multiply rounded-2xl" />
+            <div className="absolute inset-0 bg-black/10 mix-blend-multiply rounded-2xl shadow-sm" />
             <Image
               src={aboutMe.imageUrl}
               alt={aboutMe.name}
@@ -86,7 +86,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             <SlideToRight delay={0.3}>
               <a
                 href={aboutMe.cvUrl}
-                className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                className="group inline-flex items-center gap-2 text-xs text-zinc-600 hover:text-zinc-900 transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >

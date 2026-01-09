@@ -82,7 +82,7 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
 
         {/* Slider */}
         <motion.div
-          className="flex cursor-grab active:cursor-grabbing touch-pan-x"
+          className="flex active:cursor-grabbing touch-pan-x"
           // drag="x"
           // dragConstraints={{ left: 0, right: 0 }}
           // dragElastic={0.5}

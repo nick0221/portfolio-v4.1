@@ -19,7 +19,7 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Romnick S. Sevilla",
-  title: "Full Stack Web Developer",
+  title: "Full Stack Web Developer & DevOps Enthusiast",
   institution: "",
   // Note that links work in the description
   description:
