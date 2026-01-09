@@ -63,7 +63,7 @@ export default function RootLayout({
                 </div>
 
                 {/* Copyright */}
-                <div className="text-xs text-neutral-600 dark:text-neutral-400">
+                <div className="text-xs text-neutral-600 dark:text-neutral-500">
                   © {new Date().getFullYear()} NICKDEVS WEB PORTFOLIO
                   {aboutMe.secretDescription && (
                     <p className="mt-2 text-xs max-w-md">
@@ -75,14 +75,14 @@ export default function RootLayout({
 
               {/* 2️⃣ Quick Links / Section Navigation */}
               <div className="space-y-2">
-                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
+                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-500 uppercase tracking-wide">
                   Quick Links
                 </h3>
                 <ul className="space-y-1">
                   <li>
                     <a
                       href="#education"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Education
                     </a>
@@ -90,7 +90,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#experience"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Experience
                     </a>
@@ -98,7 +98,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#portfolio"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Portfolio
                     </a>
@@ -106,7 +106,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#certification"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Certifications
                     </a>
@@ -116,7 +116,7 @@ export default function RootLayout({
 
               {/* 3️⃣ Social Links */}
               <div className="space-y-2">
-                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-400 uppercase tracking-wide">
+                <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-500 uppercase tracking-wide">
                   Let&apos;s Connect
                 </h3>
                 <div className="flex gap-4">
@@ -125,7 +125,7 @@ export default function RootLayout({
                       href={`https://github.com/${aboutMe.githubUsername}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500  transition-transform hover:scale-110"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-500  transition-transform hover:scale-110"
                       aria-label="GitHub"
                       title="GitHub"
                     >
@@ -138,7 +138,7 @@ export default function RootLayout({
                       href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-500 transition-transform hover:scale-125"
                       aria-label="LinkedIn"
                       title="LinkedIn"
                     >
@@ -149,7 +149,7 @@ export default function RootLayout({
                   {aboutMe.email && (
                     <a
                       href={`mailto:${aboutMe.email}`}
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-transform hover:scale-125"
+                      className="text-neutral-500 dark:text-neutral-500 hover:text-blue-500 transition-transform hover:scale-125"
                       aria-label="Email"
                       title="Email"
                     >
@@ -161,7 +161,7 @@ export default function RootLayout({
               </div>
 
               <div className="space-y-2">
-                <div className="text-xs  text-neutral-700 dark:text-neutral-400 uppercase ">
+                <div className="text-xs  text-neutral-700 dark:text-neutral-500 uppercase ">
                   Built with ❤️ using Next.js, TailwindCSS & Lucide
                 </div>
               </div>
