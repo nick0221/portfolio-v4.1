@@ -12,7 +12,6 @@ Showcases projects, technical skills, experience, and includes interactive featu
 - [Installation](#installation)
 - [Usage](#usage)
 - [File Structure](#file-structure)
-- [Screenshots](#screenshots)
 - [Contribution](#contribution)
 - [License](#license)
 - [Demo](#demo)
@@ -79,3 +78,39 @@ yarn dev
 - Click View More to expand long project descriptions
 - Click on project images to open the gallery modal with left/right swipe and keyboard arrow support
 - Press ESC to close the modal
+
+## Build for Production
+
+```bash
+npm run build
+npm run start
+# or
+yarn build
+yarn start
+```
+
+The website is production-ready and can be deployed to Vercel or any hosting that supports Next.js.
+
+## File Structure
+
+```bash
+/components      # React components (PortfolioEntry, FloatingMenu, GalleryModal, etc.)
+/data            # JSON/TypeScript data files (portfolioData, aboutMe, sectionOrder, etc.)
+/pages           # Next.js pages
+/public          # Public assets like images and logos
+/styles          # Global CSS and Tailwind imports
+/README.md       # Project README
+```
+
+## Contribution
+
+Contributions are welcome!
+Please open an issue or pull request for improvements, bug fixes, or new features.
+
+## License
+
+This project is open-source and available under the MIT License.
+
+## Demo
+
+Visit the live site: https://nickdevs.vercel.app/
