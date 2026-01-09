@@ -75,7 +75,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={portfolio.projectUrl}
-                className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                className="group inline-flex items-center gap-2 text-xs text-blue-500 hover:text-zinc-900 transition-colors duration-300"
               >
                 <LinkIcon size={12} />
                 <span className="tracking-wider uppercase">Demo link</span>
@@ -85,7 +85,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
             {portfolio.projectGallery && (
               <button
                 onClick={() => setOpenGallery(true)}
-                className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                className="group inline-flex items-center gap-2 text-xs text-blue-500 hover:text-zinc-900 transition-colors duration-300"
               >
                 <Images size={12} />
                 <span className="tracking-wider uppercase">View gallery</span>
