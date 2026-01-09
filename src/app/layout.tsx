@@ -53,8 +53,8 @@ export default function RootLayout({
             <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
               {/* 1️⃣ Brand / About */}
               <div className="space-y-4">
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  © {new Date().getFullYear()} NickDevs Web Portfolio
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 tracking-wide uppercase">
+                  © {new Date().getFullYear()} NickDevs WEB PORTFOLIO
                 </p>
                 {aboutMe.secretDescription && (
                   <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -72,7 +72,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#education"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Education
                     </a>
@@ -80,7 +80,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#experience"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Experience
                     </a>
@@ -88,7 +88,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#portfolio"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Portfolio
                     </a>
@@ -96,7 +96,7 @@ export default function RootLayout({
                   <li>
                     <a
                       href="#certification"
-                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-sm"
+                      className="text-neutral-500 dark:text-neutral-400 hover:text-blue-900 transition-colors text-xs tracking-wide uppercase"
                     >
                       Certifications
                     </a>
