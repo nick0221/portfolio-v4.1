@@ -36,7 +36,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
           <h3 className="font-serif text-md mb-3">
             {portfolio.projectUrl ? (
               <a
-                aria-label="Project link url"
+                aria-label={portfolio.title + " Project Link"}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={portfolio.projectUrl}
@@ -71,7 +71,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
           <div className="flex gap-6 flex-wrap">
             {portfolio.projectUrl && (
               <a
-                aria-label="Demo link url"
+                aria-label={portfolio.title + " Demo link"}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={portfolio.projectUrl}
