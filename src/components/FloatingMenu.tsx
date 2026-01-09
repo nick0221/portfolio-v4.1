@@ -101,8 +101,8 @@ export function FloatingMenu() {
                     className={`text-xs font-semibold tracking-wide uppercase transition-opacity
                     ${
                       isActive
-                        ? "text-blue-900 opacity-100"
-                        : "text-zinc-500 opacity-90 group-hover:opacity-100 group-hover:text-blue-900"
+                        ? "text-blue-900"
+                        : "text-zinc-500  group-hover:text-blue-900"
                     }
                   `}
                   >
