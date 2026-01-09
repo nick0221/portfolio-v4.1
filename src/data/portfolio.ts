@@ -24,6 +24,10 @@ export const portfolioData: Portfolio[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "HeroUI"],
     projectUrl: "",
     imageUrl: "/project-images/pv3/3.png",
+    projectGallery: [
+      { urlImage: "/project-images/pv3/1.png", label: "Dark mode Page" },
+      { urlImage: "/project-images/pv3/3.png", label: "Light mode Page" },
+    ],
   },
   {
     title: "URBANKiX - Ecommerce Website",
@@ -32,6 +36,10 @@ export const portfolioData: Portfolio[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "HeroUI"],
     projectUrl: "https://urbankix.vercel.app",
     imageUrl: "/project-images/ecom/2.png",
+    projectGallery: [
+      { urlImage: "/project-images/ecom/1.png", label: "Home Page" },
+      { urlImage: "/project-images/ecom/2.png", label: "Product Page" },
+    ],
   },
 
   {
