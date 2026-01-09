@@ -70,7 +70,7 @@ export function FloatingMenu() {
           const Icon = sectionIcons[section];
 
           return (
-            <SlideToLeft key={section} delay={i * 0.2}>
+            <SlideToLeft key={section} delay={i * 0.2} duration={0.2}>
               <li key={section}>
                 <button
                   aria-current={isActive ? "true" : undefined}
