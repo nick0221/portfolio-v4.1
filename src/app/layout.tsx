@@ -36,6 +36,12 @@ export const metadata: Metadata = {
   description: customMetadata.description || aboutMe.description,
   icons: {
     icon: "/favicon/favicon.ico",
+    shortcut: "/favicon/favicon.ico",
+    apple: "/favicon/apple-touch-icon.png",
+    other: {
+      rel: "android-chrome-192x192",
+      url: "/favicon/android-chrome-192x192.png",
+    },
   },
 
   verification: {
