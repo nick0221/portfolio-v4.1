@@ -27,7 +27,7 @@ Showcases projects, technical skills, experience, and includes interactive featu
   - Project previews with image thumbnails
   - Tech stack badges
   - View more/less description
-  - Gallery modal with **swipe support** and keyboard navigation
+  - Gallery modal with **keyboard navigation** support
 - Light/Dark logo variations
 - Smooth hover and fade-in animations
 
