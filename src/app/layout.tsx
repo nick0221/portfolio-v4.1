@@ -31,14 +31,47 @@ const ptSerif = PT_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nickdevs.vercel.app/"),
   title: customMetadata.title || aboutMe.name,
   description: customMetadata.description || aboutMe.description,
   icons: {
     icon: "/favicon/favicon.ico",
   },
-  metadataBase: new URL("https://nickdevs.vercel.app/"),
+
   verification: {
     google: "H-hU2TROsFDkDkK5qhrkbO4aF1t83MfNHIEtOXqEy_k",
+  },
+
+  alternates: {
+    canonical: "https://nickdevs.vercel.app/",
+  },
+
+  openGraph: {
+    title: customMetadata.title || aboutMe.name,
+    description:
+      customMetadata.description ||
+      "Modern portfolio website showcasing projects, experience, and technical skills.",
+    url: "https://nickdevs.vercel.app/",
+    siteName: "NickDevs Web Portfolio",
+    images: [
+      {
+        url: "/og-image.png", // place this in /public
+        width: 1200,
+        height: 630,
+        alt: "NickDevs Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: customMetadata.title || aboutMe.name,
+    description:
+      customMetadata.description ||
+      "Full-stack developer portfolio by NickDevs.",
+    images: ["/og-image.png"],
   },
 };
 
