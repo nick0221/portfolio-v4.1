@@ -63,57 +63,59 @@ export function FloatingMenu() {
 
   return (
     <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-      <ul className="flex flex-col gap-4">
-        {sectionOrder.map((section, i) => {
-          const id = sectionIds[section];
-          const isActive = active === id;
-          const Icon = sectionIcons[section];
+      {sectionOrder.map((section, i) => {
+        const id = sectionIds[section];
+        const isActive = active === id;
+        const Icon = sectionIcons[section];
 
-          return (
-            <SlideToLeft key={section} delay={i * 0.2} duration={0.2}>
-              <li key={section}>
-                <button
-                  aria-current={isActive ? "true" : undefined}
-                  onClick={() => {
-                    setActive(id); // immediate feedback
-                    document.getElementById(id)?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }}
-                  className="group flex items-center gap-3"
-                >
-                  {/* Icon */}
-                  {Icon && (
-                    <Icon
-                      className={`h-5 w-5 transition-all
+        return (
+          <div key={section} className="mb-6 last:mb-0">
+            <ul className="flex flex-col gap-4">
+              <SlideToLeft key={section} delay={i * 0.2} duration={0.2}>
+                <li key={section}>
+                  <button
+                    aria-current={isActive ? "true" : undefined}
+                    onClick={() => {
+                      setActive(id); // immediate feedback
+                      document.getElementById(id)?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
+                    className="group flex items-center gap-3"
+                  >
+                    {/* Icon */}
+                    {Icon && (
+                      <Icon
+                        className={`h-5 w-5 transition-all
                       ${
                         isActive
                           ? "text-blue-900 scale-150"
                           : "text-zinc-400 group-hover:text-blue-900"
                       }
                     `}
-                    />
-                  )}
+                      />
+                    )}
 
-                  {/* Label */}
-                  <span
-                    className={`text-xs font-semibold tracking-wide uppercase transition-opacity
+                    {/* Label */}
+                    <span
+                      className={`text-xs font-semibold tracking-wide uppercase transition-opacity
                     ${
                       isActive
                         ? "text-blue-900"
                         : "text-zinc-500  group-hover:text-blue-900"
                     }
                   `}
-                  >
-                    {section}
-                  </span>
-                </button>
-              </li>
-            </SlideToLeft>
-          );
-        })}
-      </ul>
+                    >
+                      {section}
+                    </span>
+                  </button>
+                </li>
+              </SlideToLeft>
+            </ul>
+          </div>
+        );
+      })}
     </nav>
   );
 }
