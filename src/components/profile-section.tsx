@@ -3,12 +3,11 @@ import {
   Github,
   Linkedin,
   Mail,
-  Twitter,
   ArrowUpRight,
-  GraduationCap,
   FolderDownIcon,
 } from "lucide-react";
 import { AboutMe } from "@/data/aboutme";
+import { SlideToRight } from "@/components/motion";
 
 interface ProfileSectionProps {
   aboutMe: AboutMe;
@@ -76,65 +75,46 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <span className="tracking-wider uppercase">Blog</span>
             </a>
           )}
+
+          {/* download cv */}
           {aboutMe.cvUrl && (
-            <a
-              href={aboutMe.cvUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {/* <ArrowUpRight
+            <SlideToRight delay={0.2}>
+              <a
+                href={aboutMe.cvUrl}
+                className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {/* <ArrowUpRight
                 size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               /> */}
-              <FolderDownIcon
-                size={15}
-                className="group-hover:-translate-x-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Download CV</span>
-            </a>
+                <FolderDownIcon
+                  size={15}
+                  className="group-hover:-translate-x-0.5 transition-transform duration-300"
+                />
+                <span className="tracking-wider uppercase">Download CV</span>
+              </a>
+            </SlideToRight>
           )}
         </div>
         <div className="space-y-2">
-          <a
-            href={`mailto:${aboutMe.email}`}
-            className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Mail size={14} />
-            {aboutMe.email}
-          </a>
-          {aboutMe.googleScholarUrl && (
-            <>
-              <br />
-              <a
-                href={aboutMe.googleScholarUrl}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GraduationCap size={14} />
-                Google Scholar
-              </a>
-            </>
-          )}
-          {aboutMe.twitterUsername && (
-            <>
-              <br />
-              <a
-                href={`https://twitter.com/${aboutMe.twitterUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter size={14} />@{aboutMe.twitterUsername}
-              </a>
-            </>
-          )}
-          {aboutMe.githubUsername && (
-            <>
-              <br />
+          {/* email */}
+          <SlideToRight delay={0.4}>
+            <a
+              href={`mailto:${aboutMe.email}`}
+              className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Mail size={14} />
+              {aboutMe.email}
+            </a>
+          </SlideToRight>
+
+          {/* github  */}
+          <SlideToRight delay={0.6}>
+            {aboutMe.githubUsername && (
               <a
                 href={`https://github.com/${aboutMe.githubUsername}`}
                 className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
@@ -144,11 +124,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 <Github size={14} />
                 github.com/{aboutMe.githubUsername}
               </a>
-            </>
-          )}
-          {aboutMe.linkedinUsername && (
-            <>
-              <br />
+            )}
+          </SlideToRight>
+
+          <SlideToRight delay={0.8}>
+            {aboutMe.linkedinUsername && (
               <a
                 href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
                 className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
@@ -158,8 +138,8 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 <Linkedin size={14} />
                 linkedin.com/in/{aboutMe.linkedinUsername}
               </a>
-            </>
-          )}
+            )}
+          </SlideToRight>
         </div>
       </div>
     </div>

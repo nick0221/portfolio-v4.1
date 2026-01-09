@@ -13,7 +13,7 @@ interface MotionProps {
 export function SlideToRight({
   children,
   delay = 0,
-  duration = 0.6,
+  duration = 0.3,
   distance = 16,
 }: MotionProps) {
   return (
@@ -30,7 +30,7 @@ export function SlideToRight({
 export function SlideToLeft({
   children,
   delay = 0,
-  duration = 0.6,
+  duration = 0.3,
   distance = 16,
 }: MotionProps) {
   return (
