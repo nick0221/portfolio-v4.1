@@ -12,6 +12,7 @@ interface GalleryModalProps {
 
 export function GalleryModal({ images, onClose }: GalleryModalProps) {
   const [index, setIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const paginate = (direction: number) => {
     setIndex((prev) =>
@@ -92,23 +93,41 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
           animate={{ x: `-${index * 100}%` }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
-          {images.map((img, i) => (
-            <div key={i} className="min-w-full flex flex-col items-center px-6">
-              <div className="w-full max-h-[70vh] overflow-y-auto rounded-lg">
-                <Image
-                  src={img.urlImage}
-                  alt={img.label}
-                  width={900}
-                  height={2000}
-                  className="w-full h-auto rounded-lg select-none"
-                  draggable={false}
-                />
+          {images.map((img, i) => {
+            return (
+              <div
+                key={i}
+                className="min-w-full flex flex-col items-center px-6"
+              >
+                <div className="w-full max-h-[70vh] overflow-y-auto rounded-lg relative">
+                  {/* Loading placeholder */}
+                  {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse rounded-lg">
+                      <div className="w-12 h-12 border-4 border-gray-300 border-t-transparent rounded-full animate-spin" />
+                    </div>
+                  )}
+
+                  {/* Image */}
+                  <Image
+                    src={img.urlImage}
+                    alt={img.label}
+                    width={900}
+                    height={2000}
+                    className={`w-full h-auto rounded-lg select-none transition-opacity duration-500 ${
+                      loading ? "opacity-0" : "opacity-100"
+                    }`}
+                    draggable={false}
+                    onLoadingComplete={() => setLoading(false)}
+                  />
+                </div>
+
+                {/* Label */}
+                <p className="text-xs text-zinc-500 mt-2 text-center">
+                  {img.label}
+                </p>
               </div>
-              <p className="text-xs text-zinc-500 mt-2 text-center">
-                {img.label}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
 
         {/* Dots */}
