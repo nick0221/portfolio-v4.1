@@ -1,3 +1,5 @@
+"use client";
+
 import { EducationEntry } from "@/components/education-entry";
 import { educationData } from "@/data/education";
 
@@ -15,7 +17,28 @@ import CertificationEntry from "@/components/certification-entry";
 import { certificationData } from "@/data/certification";
 import { FloatingMenu } from "@/components/FloatingMenu";
 
+import { useMemo, useState } from "react";
+
 export default function Home() {
+  const [techFilter, setTechFilter] = useState<string>("All");
+
+  /**
+   * Collect all unique technologies from portfolioData
+   */
+  const techOptions = useMemo(() => {
+    const techs = portfolioData.flatMap((p) => p.technologies ?? []);
+    return ["All", ...Array.from(new Set(techs)).sort()];
+  }, []);
+
+  /**
+   * Filtered portfolio list
+   */
+  const filteredPortfolio = useMemo(() => {
+    if (techFilter === "All") return portfolioData;
+
+    return portfolioData.filter((p) => p.technologies?.includes(techFilter));
+  }, [techFilter]);
+
   return (
     <div className="min-h-screen bg-[#FFFCF8]">
       <FloatingMenu />
@@ -120,14 +143,34 @@ export default function Home() {
                         id="portfolio"
                         className="scroll-mt-32"
                       >
-                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                          Portfolio <br />
-                          <small className="text-sm capitalize font-normal   text-zinc-500">
-                            ({portfolioData.length} Projects)
-                          </small>
-                        </h2>
+                        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between mb-12">
+                          <h2 className="font-serif text-md tracking-wide uppercase">
+                            Portfolio <br />
+                            <small className="text-sm capitalize font-normal text-zinc-500">
+                              ({filteredPortfolio.length} Projects)
+                            </small>
+                          </h2>
+
+                          {/* Tech Stack Filter */}
+                          <select
+                            value={techFilter}
+                            onChange={(e) => setTechFilter(e.target.value)}
+                            className="
+                                border-b border-zinc-400 bg-transparent
+                                px-1 py-1 text-sm text-zinc-700
+                                focus:outline-none focus:border-blue-900
+                              "
+                          >
+                            {techOptions.map((tech) => (
+                              <option key={tech} value={tech}>
+                                {tech}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
                         <div className="space-y-12">
-                          {portfolioData.map((portfolio, index) => (
+                          {filteredPortfolio.map((portfolio, index) => (
                             <PortfolioEntry key={index} portfolio={portfolio} />
                           ))}
                         </div>

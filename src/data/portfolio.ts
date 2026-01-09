@@ -72,14 +72,7 @@ export const portfolioData: Portfolio[] = [
     title: "Allacapan Municipal Rural Health Unit Management System",
     description:
       "The Municipal Rural Health Unit Management System is a role-based, web-based platform developed exclusively for the Municipality of Allacapan, aimed at digitizing patient records, consultation tracking, scheduling, and reporting to improve local healthcare service delivery.",
-    technologies: [
-      "Laravel",
-      "Tailwind CSS",
-      "Alpine.js",
-      "Livewire",
-      "MySQL",
-      "Bootstrap",
-    ],
+    technologies: ["Laravel", "Tailwind CSS", "Alpine.js", "Livewire", "MySQL"],
     projectUrl: "",
     imageUrl: "/project-images/rhu/4.png",
   },
