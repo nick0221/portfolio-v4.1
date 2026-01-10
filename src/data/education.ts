@@ -12,7 +12,7 @@ export const educationData: Education[] = [
 
   {
     year: "2010—2014",
-    institution: "Central Philippine State University",
+    institution: "Central Philippines State University",
     degree: "B.S. in Information Technology",
 
     // Optional links to thesis
