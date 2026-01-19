@@ -49,8 +49,8 @@ Showcases projects, technical skills, experience, and includes interactive featu
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/research-website-template.git
-cd research-website-template
+git clone https://github.com/nick0221/portfolio-v4.1.git
+cd nickdevs-web-portfolio
 ```
 
 2. **install dependencies**
