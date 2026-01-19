@@ -50,7 +50,7 @@ Showcases projects, technical skills, experience, and includes interactive featu
 
 ```bash
 git clone https://github.com/nick0221/portfolio-v4.1.git
-cd nickdevs-web-portfolio
+cd portfolio-v4.1
 ```
 
 2. **install dependencies**
