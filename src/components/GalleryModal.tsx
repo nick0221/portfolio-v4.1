@@ -108,6 +108,42 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
     return () => window.removeEventListener("keydown", handler);
   }, [onClose, paginate]);
 
+  // ── Focus trap ──
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = modalRef.current;
+    if (!el) return;
+
+    const focusable = el.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    // Focus the first focusable element
+    first?.focus();
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTab);
+    return () => window.removeEventListener("keydown", handleTab);
+  }, [index]);
+
   // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -138,6 +174,9 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
       onClick={onClose}
     >
       <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image gallery"
         className="bg-[var(--surface)] max-w-4xl w-full rounded-2xl relative overflow-hidden shadow-2xl"
         initial={{ scale: 0.92, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}

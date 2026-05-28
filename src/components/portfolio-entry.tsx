@@ -95,7 +95,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
             )}
 
             {/* Description */}
-            <div className="mb-3">
+            <div className="mb-3" id={`desc-${portfolio.title.replace(/\s+/g, "-")}`}>
               <AnimatePresence initial={false}>
                 <motion.p
                   key={expanded ? "expanded" : "collapsed"}
@@ -109,12 +109,14 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
                 </motion.p>
               </AnimatePresence>
 
-              {isLong && !expanded && (
+              {isLong && (
                 <button
-                  onClick={() => setExpanded(true)}
+                  onClick={() => setExpanded(!expanded)}
+                  aria-expanded={expanded}
+                  aria-controls={`desc-${portfolio.title.replace(/\s+/g, "-")}`}
                   className="mt-1.5 text-[11px] font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                 >
-                  Read more →
+                  {expanded ? "Show less ↑" : "Read more →"}
                 </button>
               )}
             </div>

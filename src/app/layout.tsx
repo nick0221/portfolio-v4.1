@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { Reveal } from "@/components/motion";
 import { NickDevsDarkLogo, NickDevsLightLogo } from "@/components/logo/NickDevsLogo";
+import { portfolioData } from "@/data/portfolio";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -94,6 +95,69 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ptSerif.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: aboutMe.name,
+              givenName: aboutMe.name.split(" ")[0],
+              familyName: aboutMe.name.split(" ").slice(1).join(" "),
+              description: aboutMe.description,
+              email: aboutMe.email,
+              image: `https://nickdevs.vercel.app${aboutMe.imageUrl}`,
+              url: "https://nickdevs.vercel.app/",
+              jobTitle: aboutMe.title,
+              sameAs: [
+                aboutMe.githubUsername
+                  ? `https://github.com/${aboutMe.githubUsername}`
+                  : undefined,
+                aboutMe.linkedinUsername
+                  ? `https://www.linkedin.com/in/${aboutMe.linkedinUsername}`
+                  : undefined,
+              ].filter(Boolean),
+              knowsAbout: Array.from(
+                new Set(
+                  portfolioData.flatMap((p) => p.technologies ?? [])
+                )
+              ),
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "NickDevs Portfolio",
+              url: "https://nickdevs.vercel.app/",
+              description:
+                customMetadata.description ||
+                "Full-stack web developer portfolio showcasing projects, skills, and experience.",
+              author: {
+                "@type": "Person",
+                name: aboutMe.name,
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": portfolioData.map((p) => ({
+                "@type": "Project",
+                name: p.title,
+                description: p.description,
+                url: p.projectUrl ? p.projectUrl : undefined,
+                keywords: p.technologies?.join(", "),
+              })),
+            }),
+          }}
+        />
         <AmbientBackground />
         <ThemeProvider>
           <div className="min-h-screen">
