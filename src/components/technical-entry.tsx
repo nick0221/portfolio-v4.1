@@ -167,9 +167,6 @@ export function TechnicalEntry({ technical }: { technical: TechnicalSkill }) {
       bg: "from-[var(--accent)]/10",
     };
 
-  // Decide layout: 2-column grid for categories with 6+ skills, single column otherwise
-  const isLarge = technical.skills.length >= 6;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -183,14 +180,8 @@ export function TechnicalEntry({ technical }: { technical: TechnicalSkill }) {
         {technical.category}
       </span>
 
-      {/* Skills — 2-column grid for large categories, single column otherwise */}
-      <div
-        className={
-          isLarge
-            ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3"
-            : "space-y-3"
-        }
-      >
+      {/* Skills — 2-column grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
         {technical.skills.map((skill, index) => (
           <SkillStars
             key={skill.name}
