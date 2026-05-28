@@ -4,7 +4,6 @@ import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
 import { portfolioData } from "@/data/portfolio";
 import { certificationData } from "@/data/certification";
-import { experienceData } from "@/data/experience";
 import { educationData } from "@/data/education";
 import { Briefcase, FolderKanban, Award, GraduationCap } from "lucide-react";
 import { FloatingMenu } from "@/components/FloatingMenu";
@@ -12,22 +11,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { FadeIn } from "@/components/motion";
 import { SectionsRenderer } from "@/components/SectionsRenderer";
 
-function computeYearsOfExperience(data: typeof experienceData): number {
-  const dates = data
-    .flatMap((e) => {
-      const match = e.date.match(/(\d{4})/g);
-      return match ? [parseInt(match[0])] : [];
-    });
-  if (dates.length === 0) return 0;
-  const earliest = Math.min(...dates);
-  const latest = Math.max(...dates);
-  // If the latest experience is still current (contains "Present"), use current year
-  const hasPresent = data.some((e) => e.date.toLowerCase().includes("present"));
-  const endYear = hasPresent ? new Date().getFullYear() : latest;
-  return Math.max(0, endYear - earliest);
-}
-
-const experienceYears = computeYearsOfExperience(experienceData);
+const experienceYears = 8;
 
 const sidebarStats = [
   {
