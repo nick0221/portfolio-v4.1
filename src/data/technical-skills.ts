@@ -1,58 +1,78 @@
+export interface SkillItem {
+  name: string;
+  level: number; // 0–100 proficiency
+}
+
 export interface TechnicalSkill {
   category: string;
-  skills: string[];
+  skills: SkillItem[];
 }
 
 export const technicalSkillsData: TechnicalSkill[] = [
   {
     category: "Backend Development",
-    skills: ["PHP", "REST APIs", "Laravel", "Express.js", "Node.js"],
+    skills: [
+      { name: "Laravel", level: 92 },
+      { name: "PHP", level: 88 },
+      { name: "REST APIs", level: 90 },
+      { name: "Node.js", level: 78 },
+      { name: "Express.js", level: 72 },
+    ],
   },
   {
     category: "Frontend Development",
     skills: [
-      "React JS",
-      "Next.js",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "JavaScript",
-      "TypeScript",
-      "JQuery",
-      "Vue.js",
-      "Bootstrap",
+      { name: "Next.js", level: 93 },
+      { name: "HTML5", level: 95 },
+      { name: "JavaScript", level: 92 },
+      { name: "Tailwind CSS", level: 92 },
+      { name: "React JS", level: 90 },
+      { name: "CSS3", level: 90 },
+      { name: "TypeScript", level: 88 },
+      { name: "Bootstrap", level: 88 },
+      { name: "JQuery", level: 82 },
+      { name: "Vue.js", level: 65 },
     ],
   },
   {
     category: "Database",
-    skills: ["MySQL", "SQLite", "MongoDB", "MariaDB", "MS SQL Server"],
+    skills: [
+      { name: "MySQL", level: 90 },
+      { name: "SQLite", level: 75 },
+      { name: "MariaDB", level: 72 },
+      { name: "MongoDB", level: 70 },
+      { name: "MS SQL Server", level: 65 },
+    ],
   },
   {
     category: "Version Control",
-    skills: ["Git", "GitHub"],
+    skills: [
+      { name: "Git", level: 88 },
+      { name: "GitHub", level: 85 },
+    ],
   },
   {
     category: "Cloud Services and Hosting",
     skills: [
-      "AWS",
-      "Firebase",
-      "Google Cloud Platform",
-      "Hostinger",
-      "Vercel",
-      "Render Cloud",
+      { name: "Vercel", level: 85 },
+      { name: "Hostinger", level: 80 },
+      { name: "AWS", level: 75 },
+      { name: "Render Cloud", level: 72 },
+      { name: "Firebase", level: 70 },
+      { name: "Google Cloud Platform", level: 65 },
     ],
   },
   {
     category: "Other tools and Technologies",
     skills: [
-      "Docker",
-      "Linux",
-      "Nginx",
-      "Apache",
-      "Postman",
-      "VS Code",
-      "Laravel Herd",
-      "PhpStorm",
+      { name: "VS Code", level: 90 },
+      { name: "Postman", level: 80 },
+      { name: "Linux", level: 78 },
+      { name: "PhpStorm", level: 78 },
+      { name: "Laravel Herd", level: 75 },
+      { name: "Docker", level: 72 },
+      { name: "Nginx", level: 72 },
+      { name: "Apache", level: 70 },
     ],
   },
 ];
