@@ -2,10 +2,56 @@
 
 import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
+import { portfolioData } from "@/data/portfolio";
+import { certificationData } from "@/data/certification";
+import { experienceData } from "@/data/experience";
+import { educationData } from "@/data/education";
+import { Briefcase, FolderKanban, Award, GraduationCap } from "lucide-react";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { BackToTop } from "@/components/BackToTop";
 import { FadeIn } from "@/components/motion";
 import { SectionsRenderer } from "@/components/SectionsRenderer";
+
+function computeYearsOfExperience(data: typeof experienceData): number {
+  const dates = data
+    .flatMap((e) => {
+      const match = e.date.match(/(\d{4})/g);
+      return match ? [parseInt(match[0])] : [];
+    });
+  if (dates.length === 0) return 0;
+  const earliest = Math.min(...dates);
+  const latest = Math.max(...dates);
+  // If the latest experience is still current (contains "Present"), use current year
+  const hasPresent = data.some((e) => e.date.toLowerCase().includes("present"));
+  const endYear = hasPresent ? new Date().getFullYear() : latest;
+  return Math.max(0, endYear - earliest);
+}
+
+const experienceYears = computeYearsOfExperience(experienceData);
+
+const sidebarStats = [
+  {
+    icon: Briefcase,
+    value: experienceYears,
+    label: "Years Exp.",
+    suffix: "+",
+  },
+  {
+    icon: FolderKanban,
+    value: portfolioData.length,
+    label: "Projects",
+  },
+  {
+    icon: Award,
+    value: certificationData.length,
+    label: "Certs",
+  },
+  {
+    icon: GraduationCap,
+    value: educationData.length,
+    label: "Degrees",
+  },
+].filter((s) => s.value > 0);
 
 export default function Home() {
   return (
@@ -20,6 +66,32 @@ export default function Home() {
             <div className="md:sticky top-12 space-y-8">
               <FadeIn>
                 <ProfileSection aboutMe={aboutMe} />
+              </FadeIn>
+
+              {/* ── Sidebar Stats ── */}
+              <FadeIn>
+                <div className="grid grid-cols-2 gap-2">
+                  {sidebarStats.map((stat) => {
+                    const Icon = stat.icon;
+                    return (
+                      <div
+                        key={stat.label}
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/30 transition-all duration-200"
+                      >
+                        <div className="flex-shrink-0 w-7 h-7 rounded-md bg-[var(--accent-light)] flex items-center justify-center">
+                          <Icon size={13} className="text-[var(--accent)]" />
+                        </div>
+                        <div className="min-w-0">                              <p className="text-[13px] font-semibold text-[var(--foreground)] leading-none mb-0.5">
+                                {stat.value}{"suffix" in stat ? stat.suffix : ""}
+                              </p>
+                          <p className="text-[9px] font-medium text-[var(--foreground-tertiary)] uppercase tracking-wider">
+                            {stat.label}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </FadeIn>
             </div>
           </div>
