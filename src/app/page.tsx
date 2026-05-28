@@ -4,8 +4,7 @@ import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
 import { portfolioData } from "@/data/portfolio";
 import { certificationData } from "@/data/certification";
-import { educationData } from "@/data/education";
-import { Briefcase, FolderKanban, Award, GraduationCap } from "lucide-react";
+import { Briefcase, FolderKanban, Award, Zap } from "lucide-react";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { BackToTop } from "@/components/BackToTop";
 import { FadeIn } from "@/components/motion";
@@ -31,11 +30,11 @@ const sidebarStats = [
     label: "Certs",
   },
   {
-    icon: GraduationCap,
-    value: educationData.length,
-    label: "Degrees",
+    icon: Zap,
+    value: "Immediate",
+    label: "Availability",
   },
-].filter((s) => s.value > 0);
+].filter((s) => typeof s.value === "number" ? s.value > 0 : true);
 
 export default function Home() {
   return (
