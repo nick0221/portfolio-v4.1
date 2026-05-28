@@ -4,6 +4,7 @@ export enum Section {
   Portfolio = "Portfolio",
   technical = "Techstacks",
   Certification = "Certification",
+  Contact = "Contact",
 }
 
 export const sectionOrder = [
@@ -12,6 +13,7 @@ export const sectionOrder = [
   Section.technical,
   Section.Portfolio,
   Section.Certification,
+  Section.Contact,
 ];
 
 export const sectionIds: Record<Section, string> = {
@@ -20,4 +22,5 @@ export const sectionIds: Record<Section, string> = {
   [Section.technical]: "techStacks",
   [Section.Portfolio]: "portfolio",
   [Section.Certification]: "certifications",
+  [Section.Contact]: "contact",
 };

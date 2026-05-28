@@ -12,6 +12,7 @@ import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
 import CertificationEntry from "@/components/certification-entry";
 import { certificationData } from "@/data/certification";
+import { ContactForm } from "@/components/ContactForm";
 import { useMemo, useState } from "react";
 import {
   Reveal,
@@ -233,6 +234,22 @@ export function SectionsRenderer() {
                   </section>
                 </Reveal>
               )
+            );
+
+          case Section.Contact:
+            return (
+              <Reveal key={sectionName}>
+                <section id="contact" className="scroll-mt-32">
+                  <SectionHeader num={sectionNumber} title="Get in Touch" />
+                  <div className="max-w-lg">
+                    <p className="text-[12px] text-[var(--foreground-secondary)] leading-relaxed mb-6">
+                      Have a project in mind, a question, or just want to say hello?
+                      Fill out the form below and I&apos;ll get back to you.
+                    </p>
+                    <ContactForm />
+                  </div>
+                </section>
+              </Reveal>
             );
 
           default:

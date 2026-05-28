@@ -8,6 +8,7 @@ import {
   Code2,
   FolderKanban,
   Award,
+  Mail,
   Moon,
   Sun,
 } from "lucide-react";
@@ -21,6 +22,7 @@ const sectionIcons = {
   Techstacks: Code2,
   Portfolio: FolderKanban,
   Certification: Award,
+  Contact: Mail,
 } as const;
 
 export function FloatingMenu() {
