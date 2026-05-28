@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 interface GalleryModalProps {
   images: { urlImage: string; label: string }[];
@@ -11,14 +12,90 @@ interface GalleryModalProps {
 }
 
 export function GalleryModal({ images, onClose }: GalleryModalProps) {
-  const [index, setIndex] = useState(0);
+  const [[index, direction], setPage] = useState([0, 0]);
   const [loading, setLoading] = useState(true);
 
-  const paginate = (direction: number) => {
-    setIndex((prev) =>
-      Math.min(Math.max(prev + direction, 0), images.length - 1)
-    );
-  };
+  // ── Swipe / drag state ──
+  const dragState = useRef({
+    isDragging: false,
+    startX: 0,
+    currentX: 0,
+    isTouch: false,
+  });
+  const [dragOffset, setDragOffset] = useState(0);
+  const SWIPE_THRESHOLD = 60;
+
+  const paginate = useCallback(
+    (newDirection: number) => {
+      setLoading(true);
+      setPage(([prev]) => [
+        Math.min(Math.max(prev + newDirection, 0), images.length - 1),
+        newDirection,
+      ]);
+    },
+    [images.length]
+  );
+
+  // ── Swipe / drag handlers ──
+  const handleDragStart = useCallback(
+    (clientX: number, isTouch: boolean) => {
+      dragState.current = {
+        isDragging: true,
+        startX: clientX,
+        currentX: clientX,
+        isTouch,
+      };
+      setDragOffset(0);
+    },
+    []
+  );
+
+  const handleDragMove = useCallback((clientX: number) => {
+    if (!dragState.current.isDragging) return;
+    dragState.current.currentX = clientX;
+    setDragOffset(clientX - dragState.current.startX);
+  }, []);
+
+  const handleDragEnd = useCallback(() => {
+    if (!dragState.current.isDragging) return;
+    const delta = dragState.current.currentX - dragState.current.startX;
+    dragState.current.isDragging = false;
+    setDragOffset(0);
+
+    if (Math.abs(delta) >= SWIPE_THRESHOLD) {
+      if (delta > 0 && index > 0) {
+        paginate(-1);
+      } else if (delta < 0 && index < images.length - 1) {
+        paginate(1);
+      }
+    }
+  }, [index, images.length, paginate]);
+
+  // Global listeners for mouse up/move (to catch events outside the element)
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => handleDragMove(e.clientX);
+    const handleMouseUp = () => handleDragEnd();
+    const handleTouchMove = (e: TouchEvent) => {
+      if (dragState.current.isTouch) {
+        handleDragMove(e.touches[0].clientX);
+      }
+    };
+    const handleTouchEnd = () => {
+      if (dragState.current.isTouch) handleDragEnd();
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [handleDragMove, handleDragEnd]);
 
   // Keyboard support
   useEffect(() => {
@@ -29,121 +106,176 @@ export function GalleryModal({ images, onClose }: GalleryModalProps) {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [index]);
+  }, [onClose, paginate]);
+
+  // Lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1 },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+    }),
+  };
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
       onClick={onClose}
     >
       <motion.div
-        className="bg-white max-w-4xl w-full rounded-xl p-6 relative overflow-hidden"
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        transition={{ duration: 0.25 }}
+        className="bg-[var(--surface)] max-w-4xl w-full rounded-2xl relative overflow-hidden shadow-2xl"
+        initial={{ scale: 0.92, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.92, opacity: 0, y: 20 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 z-10"
-        >
-          <X size={18} />
-        </button>
-
-        {/* Counter */}
-        <div className="absolute top-4 left-4 text-xs text-zinc-500">
-          {index + 1} / {images.length}
+        {/* Top bar */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border)] bg-[var(--background-secondary)]/50">
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] font-mono font-medium text-[var(--foreground-secondary)]">
+              {String(index + 1).padStart(2, "0")} /{" "}
+              {String(images.length).padStart(2, "0")}
+            </span>
+            <span className="text-[11px] text-[var(--foreground-tertiary)] hidden sm:inline">
+              {images[index]?.label}
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg text-[var(--foreground-secondary)] hover:text-[var(--foreground)] hover:bg-[var(--background-secondary)] transition-all duration-200"
+            aria-label="Close gallery"
+          >
+            <X size={16} />
+          </button>
         </div>
 
-        {/* Left Arrow */}
-        {index > 0 && (
-          <button
-            onClick={() => paginate(-1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow hover:bg-white z-10"
-          >
-            <ChevronLeft size={18} />
-          </button>
-        )}
-
-        {/* Right Arrow */}
-        {index < images.length - 1 && (
-          <button
-            onClick={() => paginate(1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow hover:bg-white z-10"
-          >
-            <ChevronRight size={18} />
-          </button>
-        )}
-
-        {/* Slider */}
-        <motion.div
-          className="flex active:cursor-grabbing touch-pan-x"
-          // drag="x"
-          // dragConstraints={{ left: 0, right: 0 }}
-          // dragElastic={0.5}
-          // onDragEnd={(_, info) => {
-          //   if (info.offset.x < -80) paginate(1);
-          //   if (info.offset.x > 80) paginate(-1);
-          // }}
-          animate={{ x: `-${index * 100}%` }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        >
-          {images.map((img, i) => {
-            return (
-              <div
-                key={i}
-                className="min-w-full flex flex-col items-center px-6"
+        {/* Image area */}
+        <div className="relative bg-[var(--background)]">
+          {/* Navigation arrows */}
+          <div className="absolute inset-0 flex items-center justify-between px-3 z-20 pointer-events-none">
+            {index > 0 && (
+              <button
+                onClick={() => paginate(-1)}
+                className="pointer-events-auto p-2.5 bg-[var(--overlay-heavy)] backdrop-blur-sm rounded-full shadow-lg hover:bg-[var(--surface)] hover:scale-105 active:scale-95 transition-all duration-200 border border-[var(--border)]"
+                aria-label="Previous image"
               >
-                <div className="w-full max-h-[70vh] overflow-y-auto rounded-lg relative">
-                  {/* Loading placeholder */}
-                  {loading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse rounded-lg">
-                      <div className="w-12 h-12 border-4 border-gray-300 border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  )}
+                <ChevronLeft size={18} className="text-[var(--foreground)]" />
+              </button>
+            )}
+            {index < images.length - 1 && (
+              <button
+                onClick={() => paginate(1)}
+                className="pointer-events-auto p-2.5 bg-[var(--overlay-heavy)] backdrop-blur-sm rounded-full shadow-lg hover:bg-[var(--surface)] hover:scale-105 active:scale-95 transition-all duration-200 border border-[var(--border)]"
+                aria-label="Next image"
+              >
+                <ChevronRight size={18} className="text-[var(--foreground)]" />
+              </button>
+            )}
+          </div>
 
-                  {/* Image */}
-                  <Image
-                    src={img.urlImage}
-                    alt={img.label}
-                    width={900}
-                    height={2000}
-                    className={`w-full h-auto rounded-lg select-none transition-opacity duration-500 ${
-                      loading ? "opacity-0" : "opacity-100"
-                    }`}
-                    draggable={false}
-                    onLoadingComplete={() => setLoading(false)}
-                  />
-                </div>
+          {/* Image slider */}
+          <div className="overflow-hidden select-none">
+            <div className="flex items-center justify-center min-h-[300px] sm:min-h-[400px] p-6 sm:p-10">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={index}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate={
+                    dragState.current.isDragging
+                      ? { x: dragOffset, opacity: 1 - Math.abs(dragOffset) / 800 }
+                      : "center"
+                  }
+                  exit="exit"
+                  transition={{
+                    x: dragState.current.isDragging
+                      ? { type: "tween", duration: 0 }
+                      : { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 },
+                  }}
+                  className="w-full flex flex-col items-center cursor-grab active:cursor-grabbing"
+                  onMouseDown={(e) => handleDragStart(e.clientX, false)}
+                  onTouchStart={(e) =>
+                    handleDragStart(e.touches[0].clientX, true)
+                  }
+                >
+                  <div className="w-full max-h-[60vh] overflow-hidden rounded-xl relative bg-[var(--background-secondary)]">
+                    {/* Loading placeholder */}
+                    {loading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-[var(--background-secondary)]">
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="w-8 h-8 border-2 border-[var(--border)] border-t-[var(--accent)] rounded-full animate-spin" />
+                          <span className="text-[10px] font-mono text-[var(--foreground-tertiary)]">
+                            Loading...
+                          </span>
+                        </div>
+                      </div>
+                    )}
 
-                {/* Label */}
-                <p className="text-xs text-zinc-500 mt-2 text-center">
-                  {img.label}
-                </p>
-              </div>
-            );
-          })}
-        </motion.div>
+                    <Image
+                      src={images[index].urlImage}
+                      alt={images[index].label}
+                      width={900}
+                      height={2000}
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
+                      sizes="(max-width: 768px) 100vw, 900px"
+                      className={`w-full h-auto rounded-xl select-none transition-opacity duration-500 ${
+                        loading ? "opacity-0" : "opacity-100"
+                      }`}
+                      draggable={false}
+                      onLoad={() => setLoading(false)}
+                      priority
+                    />
+                  </div>
+
+                  {/* Label */}
+                  <p className="text-xs text-[var(--foreground-secondary)] mt-4 text-center font-medium">
+                    {images[index].label}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-4">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`h-2 w-2 rounded-full transition-all ${
-                i === index
-                  ? "bg-zinc-900 scale-125"
-                  : "bg-zinc-300 hover:bg-zinc-500"
-              }`}
-            />
-          ))}
-        </div>
+        {images.length > 1 && (
+          <div className="flex justify-center gap-2 px-5 py-4 border-t border-[var(--border)] bg-[var(--background-secondary)]/50">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setLoading(true);
+                  setPage([i, i > index ? 1 : -1]);
+                }}
+                className={`transition-all duration-500 ${
+                  i === index
+                    ? "w-7 h-2 bg-[var(--accent)] rounded-full shadow-sm shadow-[var(--accent-glow)]"
+                    : "w-2 h-2 bg-[var(--border)] hover:bg-[var(--foreground-tertiary)] rounded-full"
+                }`}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );

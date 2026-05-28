@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+    deviceSizes: [480, 768, 1024, 1280, 1536],
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+  },
+  // Enable HTTP/2 server push for critical assets
+  httpAgentOptions: {
+    keepAlive: true,
   },
 };
 

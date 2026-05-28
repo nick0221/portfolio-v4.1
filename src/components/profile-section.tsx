@@ -4,153 +4,149 @@ import {
   Linkedin,
   Mail,
   ArrowUpRight,
-  FolderDownIcon,
+  FileDown,
+  MapPin,
 } from "lucide-react";
 import { AboutMe } from "@/data/aboutme";
-import { SlideToRight } from "@/components/motion";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 interface ProfileSectionProps {
   aboutMe: AboutMe;
 }
 
 export function ProfileSection({ aboutMe }: ProfileSectionProps) {
-  if (!aboutMe) {
-    return null;
-  }
+  if (!aboutMe) return null;
 
   return (
-    <div className="md:sticky top-12 flex flex-row-reverse md:flex-col gap-2 md:space-y-8">
+    <div className="md:sticky top-12 flex flex-row-reverse md:flex-col gap-5 md:gap-0">
+      {/* Photo */}
       {aboutMe.imageUrl && (
-        <div className="w-1/3 md:w-full flex-shrink-0">
-          <div className="relative max-h-[45vh] md:w-[65%] aspect-[3/4] ">
-            {/* Adaptive overlay */}
-            <div className="absolute inset-0 bg-black/10 mix-blend-multiply rounded-2xl shadow-sm" />
-            <Image
-              src={aboutMe.imageUrl}
-              alt={aboutMe.name}
-              fill
-              priority
-              className="object-cover rounded-xl"
-            />
+        <div className="w-1/3 md:w-full flex-shrink-0 md:mb-6">
+          <div className="relative md:w-[65%] aspect-square">
+            {/* Decorative ring */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[var(--accent)]/20 via-transparent to-[var(--amber)]/10 animate-[spin_8s_linear_infinite] opacity-70" />
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[var(--accent)]/10 via-transparent to-[var(--accent)]/5" />
+            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[var(--border)]">
+              <Image
+                src={aboutMe.imageUrl}
+                alt={aboutMe.name}
+                fill
+                priority
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+                sizes="(max-width: 768px) 33vw, 20vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Status dot */}
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-[3px] border-[var(--background)] shadow-sm" />
           </div>
         </div>
       )}
+
+      {/* Info */}
       <div className="w-2/3 md:w-full">
-        <h1 className="font-serif text-3xl font-light tracking-wide mb-3">
-          <SlideToRight delay={0.2}>{aboutMe.name}</SlideToRight>
+        {/* Name */}
+        <h1 className="font-serif text-2xl md:text-3xl font-bold text-[var(--foreground)] mb-1 leading-tight tracking-tight">
+          {aboutMe.name}
         </h1>
+
         {aboutMe.altName && (
-          <SlideToRight delay={0.2}>
-            <p className="text-zinc-600 text-md leading-relaxed tracking-wide mb-6">
-              {aboutMe.altName}
-            </p>
-          </SlideToRight>
+          <p className="text-sm text-[var(--foreground-secondary)] mb-2">
+            {aboutMe.altName}
+          </p>
         )}
 
-        <div className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase  ">
-          <SlideToRight delay={0.2}>{aboutMe.title}</SlideToRight>
+        {/* Title */}
+        <p className="text-[13px] text-[var(--accent)] font-medium mb-4 leading-relaxed">
+          {aboutMe.title}
+        </p>
 
-          <br />
-          {aboutMe.institutionUrl ? (
+        {aboutMe.institution && (
+          <p className="text-xs text-[var(--foreground-tertiary)] mb-4 flex items-center gap-1.5">
+            <MapPin size={12} />
+            {aboutMe.institutionUrl ? (
+              <a
+                href={aboutMe.institutionUrl}
+                className="hover:text-[var(--accent)] transition-colors underline underline-offset-2 decoration-[var(--border)]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {aboutMe.institution}
+              </a>
+            ) : (
+              aboutMe.institution
+            )}
+          </p>
+        )}
+
+        {/* Action buttons */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {aboutMe.cvUrl && (
             <a
-              aria-label="institutionUrl"
-              href={aboutMe.institutionUrl}
-              className="hover:text-zinc-900 transition-colors duration-300"
+              href={aboutMe.cvUrl}
+              className="inline-flex items-center gap-1.5 text-[11px] font-medium text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-3 py-1.5 rounded-lg transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Download CV"
             >
-              {aboutMe.institution}
+              <FileDown size={12} />
+              <span>Download CV</span>
             </a>
-          ) : (
-            aboutMe.institution
           )}
-        </div>
-
-        <div className="flex  mb-2">
           {aboutMe.blogUrl && (
             <a
-              aria-label="blogUrl"
               href={aboutMe.blogUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[var(--foreground-secondary)] border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)] px-3 py-1.5 rounded-lg transition-all duration-200"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Blog"
             >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Blog</span>
+              <ArrowUpRight size={12} />
+              <span>Blog</span>
             </a>
-          )}
-
-          {/* download cv */}
-          {aboutMe.cvUrl && (
-            <SlideToRight delay={0.3}>
-              <a
-                aria-label="Download CV"
-                href={aboutMe.cvUrl}
-                className="group inline-flex items-center gap-2 text-xs text-zinc-600 hover:text-zinc-900 transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {/* <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              /> */}
-                <FolderDownIcon
-                  size={15}
-                  className="group-hover:-translate-x-0.5 transition-transform duration-300"
-                />
-                <span className="tracking-wider uppercase">Download CV</span>
-              </a>
-            </SlideToRight>
           )}
         </div>
-        <div className="space-y-2">
-          {/* email */}
-          <SlideToRight delay={0.4}>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-[var(--border)] to-transparent mb-4" />
+
+        {/* Social links */}
+        <div className="flex gap-2">
+          {aboutMe.githubUsername && (
             <a
-              aria-label="email"
-              href={`mailto:${aboutMe.email}`}
-              className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              href={`https://github.com/${aboutMe.githubUsername}`}
+              className="p-2 text-[var(--foreground-tertiary)] hover:text-[var(--accent)] hover:bg-[var(--accent-light)] rounded-lg transition-all duration-200"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
             >
-              <Mail size={14} />
-              {aboutMe.email}
+              <Github size={16} />
             </a>
-          </SlideToRight>
-
-          {/* github  */}
-          <SlideToRight delay={0.6}>
-            {aboutMe.githubUsername && (
-              <a
-                aria-label="githubUsername"
-                href={`https://github.com/${aboutMe.githubUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={14} />
-                github.com/{aboutMe.githubUsername}
-              </a>
-            )}
-          </SlideToRight>
-
-          <SlideToRight delay={0.8}>
-            {aboutMe.linkedinUsername && (
-              <a
-                aria-label="linkedinUsername"
-                href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={14} />
-                linkedin.com/in/{aboutMe.linkedinUsername}
-              </a>
-            )}
-          </SlideToRight>
+          )}
+          {aboutMe.linkedinUsername && (
+            <a
+              href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
+              className="p-2 text-[var(--foreground-tertiary)] hover:text-[var(--accent)] hover:bg-[var(--accent-light)] rounded-lg transition-all duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <Linkedin size={16} />
+            </a>
+          )}
+          {aboutMe.email && (
+            <a
+              href={`mailto:${aboutMe.email}`}
+              className="p-2 text-[var(--foreground-tertiary)] hover:text-[var(--accent)] hover:bg-[var(--accent-light)] rounded-lg transition-all duration-200"
+              aria-label="Email"
+              title={aboutMe.email}
+            >
+              <Mail size={16} />
+            </a>
+          )}
         </div>
       </div>
     </div>

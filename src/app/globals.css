@@ -3,29 +3,255 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf8;
+  --background-rgb: 250, 250, 248;
+  --background-secondary: #f5f4f0;
+  --foreground: #1c1917;
+  --foreground-secondary: #57534e;
+  --foreground-tertiary: #a8a29e;
+  --border: #e7e5e4;
+  --border-light: #f0efea;
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #ccfbf1;
+  --accent-glow: rgba(13, 148, 136, 0.15);
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --surface: #ffffff;
+  --surface-hover: #fafaf8;
+  --overlay: rgba(255, 255, 255, 0.85);
+  --overlay-heavy: rgba(255, 255, 255, 0.95);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+  --shadow-lg: 0 12px 24px -6px rgb(0 0 0 / 0.08), 0 4px 8px -4px rgb(0 0 0 / 0.04);
+  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.12);
+
+  /* Orb colors — light mode */
+  --orb-accent: rgba(13, 148, 136, 0.25);
+  --orb-accent-strong: rgba(13, 148, 136, 0.18);
+  --orb-amber: rgba(217, 119, 6, 0.20);
+  --orb-purple: rgba(147, 51, 234, 0.12);
+  --orb-blue: rgba(59, 130, 246, 0.10);
+  --grid-color: rgba(28, 25, 23, 0.06);
+}
+
+.dark {
+  --background: #0c0a09;
+  --background-rgb: 12, 10, 9;
+  --background-secondary: #1a1817;
+  --foreground: #fafaf9;
+  --foreground-secondary: #a8a29e;
+  --foreground-tertiary: #57534e;
+  --border: #292524;
+  --border-light: #1c1917;
+  --accent: #14b8a6;
+  --accent-hover: #2dd4bf;
+  --accent-light: #134e4a;
+  --accent-glow: rgba(20, 184, 166, 0.12);
+  --amber: #f59e0b;
+  --amber-light: #78350f;
+  --surface: #1c1917;
+  --surface-hover: #292524;
+  --overlay: rgba(28, 25, 23, 0.85);
+  --overlay-heavy: rgba(28, 25, 23, 0.95);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  --shadow-lg: 0 12px 24px -6px rgb(0 0 0 / 0.5), 0 4px 8px -4px rgb(0 0 0 / 0.3);
+  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.6);
+
+  /* Orb colors — dark mode */
+  --orb-accent: rgba(20, 184, 166, 0.30);
+  --orb-accent-strong: rgba(20, 184, 166, 0.22);
+  --orb-amber: rgba(245, 158, 11, 0.22);
+  --orb-purple: rgba(192, 132, 252, 0.14);
+  --orb-blue: rgba(96, 165, 250, 0.12);
+  --grid-color: rgba(250, 250, 249, 0.05);
+}
+
+/* ── Ambient background animations ── */
+
+/* Orb 1 — wide circular drift */
+@keyframes orb-1 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  25%  { transform: translate(4%, -3%) scale(1.04); }
+  50%  { transform: translate(-2%, 5%) scale(0.96); }
+  75%  { transform: translate(5%, 1%) scale(1.02); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* Orb 2 — figure-eight pattern */
+@keyframes orb-2 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(-6%, 4%) scale(1.06); }
+  66%  { transform: translate(3%, -4%) scale(0.94); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* Orb 3 — slow vertical bob */
+@keyframes orb-3 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  50%  { transform: translate(-3%, 6%) scale(1.03); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* Orb 4 — tight diagonal oscillation */
+@keyframes orb-4 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  50%  { transform: translate(5%, -3%) scale(0.97); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* Orb 5 — small restless drift */
+@keyframes orb-5 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  25%  { transform: translate(3%, 2%) scale(1.02); }
+  50%  { transform: translate(-2%, -3%) scale(0.98); }
+  75%  { transform: translate(-4%, 1%) scale(1.01); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+/* Orb animation classes */
+.animate-orb-1 { animation: orb-1 30s ease-in-out infinite; }
+.animate-orb-2 { animation: orb-2 25s ease-in-out infinite; }
+.animate-orb-3 { animation: orb-3 35s ease-in-out infinite; }
+.animate-orb-4 { animation: orb-4 20s ease-in-out infinite; }
+.animate-orb-5 { animation: orb-5 28s ease-in-out infinite; }
+
+/* Grid pulse — subtle breathing opacity */
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.08; }
+}
+.animate-grid-pulse {
+  animation: grid-pulse 8s ease-in-out infinite;
+}
+
+/* Particle floaters */
+@keyframes particle {
+  0%   { transform: translate(0px, 0px) scale(1); opacity: 0; }
+  10%  { opacity: 0.2; }
+  50%  { transform: translate(15px, -25px) scale(1.2); }
+  90%  { opacity: 0.15; }
+  100% { transform: translate(-5px, 10px) scale(0.8); opacity: 0; }
+}
+
+.animate-particle {
+  animation: particle var(--dur, 15s) ease-in-out infinite;
+}
+
+/* Code symbol drift */
+@keyframes code-float {
+  0%   { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.5; }
+  45%  { transform: translateY(-20px) rotate(5deg); opacity: 0.7; }
+  55%  { transform: translateY(-22px) rotate(-3deg); opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(-5px) rotate(2deg); opacity: 0; }
+}
+
+.animate-code-float {
+  animation: code-float var(--dur, 22s) ease-in-out infinite;
+}
+
+/* Shape float + rotation */
+@keyframes shape-float {
+  0%   { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0; }
+  15%  { opacity: 0.35; }
+  50%  { transform: translateY(-30px) rotate(180deg) scale(1.1); opacity: 0.5; }
+  85%  { opacity: 0.25; }
+  100% { transform: translateY(-8px) rotate(360deg) scale(0.9); opacity: 0; }
+}
+
+.animate-shape-float {
+  animation: shape-float var(--dur, 28s) ease-in-out infinite;
+}
+
+/* Constellation dot pulse */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.3); }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse var(--dur, 4s) ease-in-out infinite;
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: var(--source-serif-font), Georgia, serif;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Elements marked with serif class or font-serif will use Source Serif */
+/* ── Typography ── */
 .font-serif,
 .serif {
-  font-family: ui-serif, var(--font-pt-serif), var(--font-noto-serif), Georgia,
-    serif;
+  font-family: var(--font-pt-serif), var(--font-noto-serif), Georgia, serif;
 }
 
-/* Elements marked with sans or font-sans will use Geist */
-.font-sans,
-.sans {
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+.font-mono,
+.mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
+/* ── Section spacing ── */
 section {
   scroll-margin-top: 8rem;
+}
+
+/* ── Custom selection ── */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+.dark ::-webkit-scrollbar-thumb { background: #44403c; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #57534e; }
+
+/* ── Focus ring ── */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Image dark mode ── */
+.dark img { filter: brightness(0.9) contrast(1.1); }
+
+
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

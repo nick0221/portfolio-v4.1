@@ -38,7 +38,7 @@ export const experienceData: Experience[] = [
   },
 
   {
-    date: " Oct 2014 – Jul 2016 ",
+    date: "Oct 2014 – Jul 2016",
     title: "Junior Programmer",
     company: "ICLICK DIGISHOP INC.",
     description: [
