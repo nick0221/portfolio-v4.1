@@ -4,7 +4,7 @@ import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
 import { portfolioData } from "@/data/portfolio";
 import { certificationData } from "@/data/certification";
-import { Briefcase, FolderKanban, Award, Zap } from "lucide-react";
+import { Briefcase, FolderKanban, Award, CircleDot } from "lucide-react";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { BackToTop } from "@/components/BackToTop";
 import { FadeIn } from "@/components/motion";
@@ -30,9 +30,10 @@ const sidebarStats = [
     label: "Certs",
   },
   {
-    icon: Zap,
-    value: "Immediate",
-    label: "Availability",
+    icon: CircleDot,
+    value: "Open to Work",
+    label: "Status",
+    highlight: true,
   },
 ].filter((s) => typeof s.value === "number" ? s.value > 0 : true);
 
@@ -61,8 +62,16 @@ export default function Home() {
                         key={stat.label}
                         className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/30 transition-all duration-200"
                       >
-                        <div className="flex-shrink-0 w-7 h-7 rounded-md bg-[var(--accent-light)] flex items-center justify-center">
-                          <Icon size={13} className="text-[var(--accent)]" />
+                        <div className={`flex-shrink-0 w-7 h-7 rounded-md flex items-center justify-center ${
+                          "highlight" in stat && stat.highlight
+                            ? "bg-emerald-500/15"
+                            : "bg-[var(--accent-light)]"
+                        }`}>
+                          <Icon size={13} className={`${
+                            "highlight" in stat && stat.highlight
+                              ? "text-emerald-500"
+                              : "text-[var(--accent)]"
+                          }`} />
                         </div>
                         <div className="min-w-0">                              <p className="text-[13px] font-semibold text-[var(--foreground)] leading-none mb-0.5">
                                 {stat.value}{"suffix" in stat ? stat.suffix : ""}
