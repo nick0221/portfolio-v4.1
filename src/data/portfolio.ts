@@ -10,6 +10,75 @@ export interface Portfolio {
 
 export const portfolioData: Portfolio[] = [
   {
+    title: "Prestige Estates - Luxury Real Estate",
+    description:
+      "A luxury real estate showcase website featuring premium property listings, lead generation, and brand promotion for a high-end real estate agency. Includes a searchable property gallery, contact forms, and elegantly designed landing pages.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    projectUrl: "https://real-state-website-iota-tawny.vercel.app/",
+    imageUrl: "/project-images/prestige-estates/cover.webp",
+    projectGallery: [
+      {
+        urlImage: "/project-images/prestige-estates/1.webp",
+        label: "Luxury Property Listings",
+      },
+      {
+        urlImage: "/project-images/prestige-estates/2.webp",
+        label: "Featured Properties",
+      },
+      {
+        urlImage: "/project-images/prestige-estates/3.webp",
+        label: "Contact & Inquiry Section",
+      },
+    ],
+  },
+
+  {
+    title: "BlackStag Barbershop",
+    description:
+      "A premium barbershop website showcasing grooming services, barber profiles, client testimonials, and an integrated multi-step booking system for seamless appointment scheduling.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    projectUrl: "https://website-barbershop-two.vercel.app/",
+    imageUrl: "/project-images/barbershop/cover.webp",
+    projectGallery: [
+      {
+        urlImage: "/project-images/barbershop/1.webp",
+        label: "Home Page Hero",
+      },
+      {
+        urlImage: "/project-images/barbershop/2.webp",
+        label: "Services & Booking",
+      },
+      {
+        urlImage: "/project-images/barbershop/3.webp",
+        label: "Barber Profiles & Testimonials",
+      },
+    ],
+  },
+
+  {
+    title: "LendWise - Smart Lending Platform",
+    description:
+      "A fintech landing page for a smart lending platform, designed to showcase loan services with a clean, modern interface focused on financial technology solutions.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    projectUrl: "https://lendwise-rho.vercel.app/",
+    imageUrl: "/project-images/lendwise/cover.webp",
+    projectGallery: [
+      {
+        urlImage: "/project-images/lendwise/1.webp",
+        label: "Hero & Loan Products",
+      },
+      {
+        urlImage: "/project-images/lendwise/2.webp",
+        label: "Features & Benefits",
+      },
+      {
+        urlImage: "/project-images/lendwise/3.webp",
+        label: "Application & Contact",
+      },
+    ],
+  },
+
+  {
     title: "Website Portfolio v4",
     description:
       "A personal portfolio website that showcases my skills, projects, and experience.",
@@ -188,4 +257,5 @@ export const portfolioData: Portfolio[] = [
       { urlImage: "/project-images/tcs/4.webp", label: "Generated Reports" },
     ],
   },
+
 ];

@@ -192,8 +192,6 @@ export default function RootLayout({
                         "TypeScript",
                         "Tailwind CSS",
                         "Framer Motion",
-                        "Node.js",
-                        "PostgreSQL",
                       ].map((tech) => (
                         <span
                           key={tech}
