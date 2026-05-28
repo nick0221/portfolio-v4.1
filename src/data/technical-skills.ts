@@ -65,14 +65,14 @@ export const technicalSkillsData: TechnicalSkill[] = [
   {
     category: "Other tools and Technologies",
     skills: [
-      { name: "VS Code", level: 90 },
-      { name: "Postman", level: 80 },
+      { name: "VS Code", level: 92 },
+      { name: "Postman", level: 88 },
       { name: "Linux", level: 78 },
-      { name: "PhpStorm", level: 78 },
-      { name: "Laravel Herd", level: 75 },
+      { name: "PhpStorm", level: 85 },
+      { name: "Laravel Herd", level: 82 },
       { name: "Docker", level: 72 },
       { name: "Nginx", level: 72 },
-      { name: "Apache", level: 70 },
+      { name: "Apache", level: 78 },
     ],
   },
 ];
