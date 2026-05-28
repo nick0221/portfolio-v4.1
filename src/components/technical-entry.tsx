@@ -113,6 +113,10 @@ function StarsRow({ level, starColor }: { level: number; starColor: string }) {
   );
 }
 
+function levelToStars(level: number): number {
+  return Math.floor(level / 20) + (level % 20 >= 10 ? 0.5 : 0);
+}
+
 function SkillStars({
   name,
   level,
@@ -124,6 +128,8 @@ function SkillStars({
   starColor: string;
   index: number;
 }) {
+  const starValue = useMemo(() => levelToStars(level), [level]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 6 }}
@@ -137,7 +143,7 @@ function SkillStars({
         {name}
       </span>
 
-      {/* Stars + percentage */}
+      {/* Stars + rating */}
       <span className="inline-flex items-center gap-2 shrink-0">
         <motion.span
           initial={{ opacity: 0, scale: 0.8 }}
@@ -151,8 +157,8 @@ function SkillStars({
         >
           <StarsRow level={level} starColor={starColor} />
         </motion.span>
-        <span className="text-[10px] font-mono font-semibold text-[var(--foreground-tertiary)] tabular-nums">
-          {level}%
+        <span className="text-[10px] font-mono font-semibold text-[var(--accent)] tabular-nums">
+          {starValue}
         </span>
       </span>
     </motion.div>
