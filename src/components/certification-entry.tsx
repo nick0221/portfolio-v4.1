@@ -55,12 +55,40 @@ export default function CertificationEntry({
             )}
           </h3>
 
+          
           {/* Description */}
-          {certification.shortDescription && (
-            <p className="text-xs text-[var(--foreground-tertiary)] leading-relaxed">
-              {certification.shortDescription}
-            </p>
-          )}
+          {certification.shortDescription && (() => {
+            const hasColon = certification.shortDescription.includes(":");
+
+            let heading = "";
+            let rawItems = certification.shortDescription;
+
+            if (hasColon) {
+              const colonIndex = certification.shortDescription.indexOf(":");
+              heading = certification.shortDescription.slice(0, colonIndex + 1);
+              rawItems = certification.shortDescription.slice(colonIndex + 1);
+            }
+
+            const items = rawItems
+              .split(",")
+              .map((item) => item.trim())
+              .filter(Boolean);
+
+            return (
+              <div className="text-xs text-[var(--foreground-tertiary)] space-y-1.5">
+                {heading && (
+                  <p className="font-medium text-[var(--foreground)]">{heading}</p>
+                )}
+                <ul className="list-disc list-outside pl-4 space-y-1">
+                  {items.map((item, index) => (
+                    <li key={index} className="leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })()}
         </div>
       </div>
     </motion.div>

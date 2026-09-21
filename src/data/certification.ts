@@ -8,21 +8,21 @@ export interface Certification {
 
 export const certificationData: Certification[] = [
   {
-    title: "Design Prompts for Everyday Work Tasks",
+    title: "Google Prompting Essentials",
     issuer: "Google",
     date: "June 2026",
     shortDescription:
-      "",
-    credentialUrl: "https://coursera.org/share/f51cd03ad3fbf5e892e2d2e30179ff62",
+      "Course Certificates Completed: Start Writing Prompts like a Pro,  Design Prompts for Everyday Work Tasks, Speed Up Data Analysis and Presentation Building, Use AI as a Creative or Expert Partner",
+    credentialUrl: "https://coursera.org/share/25cabe2c6ac33ee07a70869e64dd6ce5",
   },
 
    {
-    title: "Start Writing Prompts like a Pro",
+    title: "Google IT Support Professional Certificate",
     issuer: "Google",
-    date: "June 2026",
+    date: "August 2026",
     shortDescription:
-      "",
-    credentialUrl: "https://coursera.org/share/9012be5295c6cbb969ac755fa4059d6d",
+      "Course Certificates Completed: Technical Support Fundamentals, The Bits and Bytes of Computer Networking, Operating Systems and You: Becoming a Power User, System Administration and IT Infrastructure Services, IT Security: Defense against the Digital Dark Arts",
+    credentialUrl: "https://coursera.org/share/286a0194a92242fd8d179b44c6af1c3a",
   },
 
   {
