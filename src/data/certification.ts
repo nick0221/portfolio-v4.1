@@ -7,6 +7,16 @@ export interface Certification {
 }
 
 export const certificationData: Certification[] = [
+
+  {
+    title: "Google IT Support Professional",
+    issuer: "Google",
+    date: "August 2026",
+    shortDescription:
+      "Course Certificates Completed: Technical Support Fundamentals, The Bits and Bytes of Computer Networking, Operating Systems and You: Becoming a Power User, System Administration and IT Infrastructure Services, IT Security: Defense against the Digital Dark Arts",
+    credentialUrl: "https://coursera.org/share/286a0194a92242fd8d179b44c6af1c3a",
+  },
+
   {
     title: "Google Prompting Essentials",
     issuer: "Google",
@@ -16,14 +26,7 @@ export const certificationData: Certification[] = [
     credentialUrl: "https://coursera.org/share/25cabe2c6ac33ee07a70869e64dd6ce5",
   },
 
-   {
-    title: "Google IT Support Professional Certificate",
-    issuer: "Google",
-    date: "August 2026",
-    shortDescription:
-      "Course Certificates Completed: Technical Support Fundamentals, The Bits and Bytes of Computer Networking, Operating Systems and You: Becoming a Power User, System Administration and IT Infrastructure Services, IT Security: Defense against the Digital Dark Arts",
-    credentialUrl: "https://coursera.org/share/286a0194a92242fd8d179b44c6af1c3a",
-  },
+  
 
   {
     title: "Web Development",
